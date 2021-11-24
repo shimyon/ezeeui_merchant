@@ -1,0 +1,42 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Account Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item>
+    <ion-label position="floating">Account holder name</ion-label>
+    <ion-input  type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">IFSC code</ion-label>
+    <ion-input  type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Bank Account number</ion-label>
+    <ion-input  type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Re-enter Bank Account number</ion-label>
+    <ion-input  type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Accept COD orders</ion-label> 
+    <ion-checkbox color="dark" checked="true"></ion-checkbox>
+
+  </ion-item>
+</ion-content> 
+<ion-footer class="ion-no-border">
+  <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>
+</ion-footer>
+
