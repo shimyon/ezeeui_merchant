@@ -11,8 +11,8 @@ export class PhoneNumberPage implements OnInit {
 
   ngOnInit() {
   }
-register() {
+  register() {
     this.route.navigate(['./register']);
-  } 
-  
+  }
+
 }

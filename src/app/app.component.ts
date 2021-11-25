@@ -13,10 +13,14 @@ import { Constants } from 'src/models/contants.models';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
+
 export class AppComponent {
   rtlSide = "left";
   selectedIndex: any;
   appPages: any;
+
+
+
   constructor(
     @Inject(APP_CONFIG) public config: AppConfig,
     private platform: Platform, private navCtrl: NavController,
