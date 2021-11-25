@@ -24,6 +24,7 @@ export class ApiRouting {
         // createUser: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Account/User/Create`,
         // loginUser: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Account/Login`,
         // customerLoginUser: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/IdentityUser/Customer/LoginUsingPhoneNumber`,
+        merchantLogin: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/IdentityUser/Merchant/LoginUsingPhoneNumber`,
         loginUsingOtp: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/IdentityUser/Merchant/LoginUsingOtp`,
         // refreshToken: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/IdentityUser/GenerateToken`,
         refreshTokenMerchant: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/IdentityUser/Merchant/GenerateToken`,

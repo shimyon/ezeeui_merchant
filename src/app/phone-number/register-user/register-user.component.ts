@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiRouting } from 'src/app/shared/api.routing';
 import { HttpService } from 'src/services/httpCall/http.service';
+import { StorageService } from 'src/services/storage/storage.service';
 
 @Component({
   selector: 'app-register-user',
@@ -14,7 +15,7 @@ export class RegisterUserComponent implements OnInit {
   termsandcondition = false;
 
   constructor(
-    // private _storageService: StorageService,
+    private _storageService: StorageService,
     private route: Router,
     private $http: HttpService,
     private $api: ApiRouting,
@@ -35,16 +36,17 @@ export class RegisterUserComponent implements OnInit {
       otp: "",
       otpExpirationTime: ''
     };
-
-    this.$http.httpCall().post(this.$api.goTo().loginUsingOtp(), payload, {})
+    debugger
+    this.$http.httpCall().post(this.$api.goTo().merchantLogin(), payload, {})
       .then(data => {
+        debugger
         const res: any = data;
         if (res.status === 200) {
           localStorage.setItem("phoneNumber", this.phoneNumber);
           data = JSON.parse(res.data);
           payload.otp = data['response'].otp;
           payload.otpExpirationTime = data['response'].otpExpirationTime;
-          // this._storageService.setVerification(payload);
+          this._storageService.setVerification(payload);
           this.register();
           // }else{
           //   this.$nativeStorage.setNative(ACTION_TYPE.ACCESS_TOKEN, res.data).then(res=>{
@@ -56,6 +58,8 @@ export class RegisterUserComponent implements OnInit {
 
 
         }
+      }, err => {
+        debugger
       })
       .catch(error => {
         console.log(error);
@@ -69,7 +73,6 @@ export class RegisterUserComponent implements OnInit {
     if (!pattern.test(inputChar)) {
       // invalid character, prevent input
       event.preventDefault();
-
     }
   }
 

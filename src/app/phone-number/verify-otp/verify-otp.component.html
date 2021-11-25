@@ -19,7 +19,7 @@
                     <!--                    <div class="icon_box ion-text-start"><img src="assets/images/ic_profile.png"></div>-->
                     <div class="input_box">
                         <ion-label mode="md" position="stacked">{{"enter_verification_code" | translate}}</ion-label>
-                        <ion-input mode="md" type="name" placeholder="" maxlength="06" value="571625"></ion-input>
+                        <ion-input mode="md" type="name" placeholder="" [(ngModel)]="verificationOTP"></ion-input>
                     </div>
                 </div>
             </ion-item>
@@ -29,7 +29,7 @@
 
 </ion-content>
 <ion-footer class="ion-no-border">
-
-    <h1 class="d-flex">{{time|async}} &nbsp;{{'sec' | translate}} <span class="end">{{'resend' | translate}}</span></h1>
-    <ion-button size="large" expand="full" class="btn" (click)="register();">{{'continue' | translate}}</ion-button>
+    <h3 class="d-flex">{{countDown}} <span class="end" *ngIf="isResend" (click)="resendOTP()"> {{'resend' |
+            translate}}</span></h3>
+    <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>
 </ion-footer>

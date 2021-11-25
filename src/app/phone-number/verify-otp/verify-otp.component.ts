@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { ApiRouting } from 'src/app/shared/api.routing';
+import { HttpService } from 'src/services/httpCall/http.service';
+import { StorageService } from 'src/services/storage/storage.service';
 
 @Component({
   selector: 'app-verify-otp',
@@ -9,35 +12,73 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class VerifyOtpComponent implements OnInit {
 
-  time: BehaviorSubject<string> = new BehaviorSubject('00:00');
-  timer: number;
-    
-  startTimer(duration:number){
-    this.timer=duration*60;
-    setInterval(()=>{
-      this.updatetimeValue()
-    },1000);
-  }
-  updatetimeValue() 
-  {
-      let minutes: any= this.timer/60;
-      let seconds: any= this.timer%60;
-      minutes= String('0' + Math.floor(minutes)).slice(-2);
-      seconds= String('0' + Math.floor(seconds)).slice(-2);
-      const text =minutes + ':'+ seconds;
-      this.time.next(text);
-      --this.timer;
-      if(this.timer<0){
-        this.startTimer(1);
-      } 
-    }
-    
-  constructor(private route: Router) { }
+  countDown: string;
+  isResend = false;
+  verificationOTP: string;
+  getverificationOtp: any;
+  expirationTime: any;
+  constructor(
+    private route: Router,
+    private $http: HttpService,
+    private $api: ApiRouting,
+    private $storageService: StorageService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    debugger
+    this.getverificationOtp = this.$storageService.getVerification();
+    this.verificationOTP = this.getverificationOtp["otp"];
+    this.expirationTime = this.getverificationOtp["otpExpirationTime"];
+  }
+
+  ionViewDidEnter() {
+    this.intervalTimer();
+  }
+
+
+  resendOTP() {
+    let payload = {
+      phoneNumber: this.getverificationOtp['phoneNumber']
+    }
+    debugger
+    this.$http.httpCall().post(this.$api.goTo().resndOtpMerchant(), payload, {}).then((res: any) => {
+      let data = JSON.parse(res.data);
+      console.log(data['response']);
+      this.verificationOTP = data['response'].otp;
+      this.expirationTime = data['response'].otpExpirationTime;
+      this.$storageService.setVerification(data['response']);
+      this.intervalTimer();
+    })
+
+  }
 
   register() {
     this.route.navigate(['./phone-number/registration']);
   }
 
+  intervalTimer() {
+    debugger
+    let min = new Date(this.expirationTime).getMinutes()
+    let timer = 60 * min;
+    let minutes: any;
+    let seconds: any
+    var x = setInterval(() => {
+      minutes = parseInt((timer / 60).toString(), 10);
+      seconds = parseInt((timer % 60).toString(), 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      this.countDown = minutes + ":" + seconds;
+      this.isResend = false;
+
+      if (--timer < 0) {
+        this.isResend = true;
+        clearInterval(x);
+
+      }
+    }, 1000);
+  }
 }
+
+
+
