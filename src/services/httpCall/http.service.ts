@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HTTP } from '@ionic-native/http/ngx';
-import { environment } from '../../../../ezeeui/ezeeui_customer/src/environments/environment';
-
-import { ACTION_TYPE } from '../../../../ezeeui/ezeeui_customer/src/app/utils/native-actions';
 import { ToastService } from 'src/app/shared/toast/toast.service';
+import { ACTION_TYPE } from 'src/app/utils/native-actions';
+import { environment } from 'src/environments/environment';
 import { LoaderService } from '../loader/loader.service';
 
 @Injectable({

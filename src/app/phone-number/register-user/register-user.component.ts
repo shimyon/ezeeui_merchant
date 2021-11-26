@@ -66,6 +66,7 @@ export class RegisterUserComponent implements OnInit {
       });
   }
 
+
   numberOnlyValidation(event: any) {
     const pattern = /[0-9]/;
     let inputChar = String.fromCharCode(event.charCode);

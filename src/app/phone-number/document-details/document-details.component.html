@@ -1,89 +1,75 @@
-
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Documents</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Documents</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item lines="none" class="animate__animated animate__fadeInUp">
-    <div class="item_inner d-flex">
-        <ion-list>
-          <ion-item>
-            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-              <ion-select-option value="brown">Select Document</ion-select-option>
-              <ion-select-option value="jammu">Adhar card</ion-select-option>
-              <ion-select-option value="blonde">PAN card</ion-select-option>
-              <ion-select-option value="black">GST certificate</ion-select-option>
-              <ion-select-option value="red">FSSAI certificate</ion-select-option>
-              <ion-select-option value="blue">Bank passbook or Cancel cheque</ion-select-option>
-            </ion-select>
-          </ion-item>
-        
-        </ion-list>
-      </div>
-  </ion-item>
-<ion-item>
-  <input type="file" />
-</ion-item>
-<ion-grid>
+    <ion-item lines="none" class="animate__animated animate__fadeInUp">
+        <div class="item_inner d-flex">
+            <ion-list>
+                <ion-item>
+                    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+                        <ion-select-option value="brown">Select Document</ion-select-option>
+                        <ion-select-option value="jammu">Adhar card</ion-select-option>
+                        <ion-select-option value="blonde">PAN card</ion-select-option>
+                        <ion-select-option value="black">GST certificate</ion-select-option>
+                        <ion-select-option value="red">FSSAI certificate</ion-select-option>
+                        <ion-select-option value="blue">Bank passbook or Cancel cheque</ion-select-option>
+                    </ion-select>
+                </ion-item>
 
-  <ion-row>
-    <ion-col size="6">
-      Document name
-    </ion-col>
-    <ion-col>
-      Status
-    </ion-col>
-    <ion-col>
-      Action
-    </ion-col>
-  </ion-row>
+            </ion-list>
+        </div>
+    </ion-item>
+    <ion-item>
+        <input type="file" />
+    </ion-item>
+    <ion-grid>
 
-  <ion-row>
-    <ion-col size="6">
-      PAN card
-    </ion-col>
-    <ion-col>
-      Uploading
-    </ion-col>
-    <ion-col>
-      delete
-    </ion-col>
-  </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                Document name
+            </ion-col>
+            <ion-col>
+                Action
+            </ion-col>
+        </ion-row>
 
-  <ion-row>
-    <ion-col size="6">
-      Adhar card
-    </ion-col>
-    <ion-col>
-      Uploaded
-    </ion-col>
-    <ion-col>
-      delete
-    </ion-col>
-  </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                PAN card
+            </ion-col>
+            <ion-col>
+                <ion-icon name="trash"></ion-icon>
+            </ion-col>
+        </ion-row>
 
-  <ion-row>
-    <ion-col size="6">
-      GST certificate
-    </ion-col>
-    <ion-col>
-      Uploaded
-    </ion-col>
-    <ion-col>
-      delete
-    </ion-col>
-  </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                Adhar card
+            </ion-col>
+            <ion-col>
+                <ion-icon name="trash"></ion-icon>
+            </ion-col>
+        </ion-row>
 
-</ion-grid>
-  
+        <ion-row>
+            <ion-col size="6">
+                GST certificate
+            </ion-col>
+            <ion-col>
+                <ion-icon name="trash"></ion-icon>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>
+    <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>
 </ion-footer>
-
