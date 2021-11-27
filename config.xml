@@ -149,5 +149,5 @@
         <variable name="ANDROIDBLACKLISTSECURESOCKETPROTOCOLS" value="SSLv3,TLSv1" />
     </plugin>
     <engine name="android" spec="8.1.0" />
-    <allow-navigation href="http://localhost:8100" sessionid="752a5547" />
+    <allow-navigation href="http://localhost:8100" sessionid="655afa31" />
 </widget>
