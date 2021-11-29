@@ -23,7 +23,7 @@
         <ion-row>
             <ion-col size="9">
                 <ion-item class="mariginpadding" lines="none" style="padding: 2%; margin: 0%;">
-                    <ion-checkbox [(ngModel)]="termsandcondition" style="margin: 9px 5px;">
+                    <ion-checkbox color="dark" [(ngModel)]="termsandcondition" style="margin: 9px 5px;">
                     </ion-checkbox>
                     <ion-label style="margin-left: 5px; font: size 10px !important ;">I accept the Terms & Condition
                     </ion-label>
@@ -42,8 +42,11 @@
             <ion-item lines="none">
                 <div class="item_inner d-flex">
                     <h3>+91</h3>
-                    <ion-input mode="md" [(ngModel)]="phoneNumber" placeholder="{{'enter_mobile_number' | translate}}" maxlength="10" (keyup)="numberOnlyValidation($event)"></ion-input>
-                    <ion-button size="large" class="btn end" (click)="login();" [disabled]="phoneNumber.length!==10 || !termsandcondition"> {{'continue' | translate}}</ion-button>
+                    <ion-input mode="md" [(ngModel)]="phoneNumber" placeholder="{{'enter_mobile_number' | translate}}"
+                        maxlength="10" (keyup)="numberOnlyValidation($event)"></ion-input>
+                    <ion-button size="large" class="btn end" (click)="login();"
+                        [disabled]="phoneNumber.length!==10 || !termsandcondition"> {{'continue' | translate}}
+                    </ion-button>
                 </div>
             </ion-item>
 

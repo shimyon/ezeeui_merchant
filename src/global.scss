@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,16 +24,16 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-@import '~animate.css/animate.min.css';
+@import "~animate.css/animate.min.css";
 
 :root {
-    --primary: #7ac81e;
-    --secondary: #91D04E;
+    --primary: blue;
+    --secondary: lightblue;
     --bg-color: #f8f9fd;
     --text-light: #b3b3b3;
     --text-dark: #616161;
     --text-black: #000;
-    --red_color: #FF0000;
+    --red_color: #ff0000;
     --white: #fff;
     --transparent: rgba(0, 0, 0, 0);
 }
@@ -69,7 +69,6 @@
             right: -50% !important;
             margin: auto;
         }
-
     }
 }
 
@@ -112,7 +111,6 @@
         &.button-block {
             --border-radius: 6px !important;
         }
-
     }
 }
 
@@ -152,7 +150,6 @@ ion-header {
                 &.ios {
                     font-size: 2rem !important;
                 }
-
             }
 
             ion-back-button {
@@ -164,7 +161,6 @@ ion-header {
             &.ios {
                 padding: 0 10px !important;
             }
-
         }
 
         ion-title {
@@ -182,7 +178,6 @@ ion-header {
             overflow: visible !important;
             line-height: 70px;
         }
-
     }
 
     &.bg_transparent {
@@ -192,7 +187,6 @@ ion-header {
         }
     }
 }
-
 
 .form {
     display: block;
@@ -233,7 +227,6 @@ ion-header {
             min-width: 30px;
             height: 37px;
             line-height: 55px;
-
         }
 
         .icon_box {
@@ -269,7 +262,7 @@ ion-header {
         ion-textarea,
         ion-input {
             --padding: 0 !important;
-            font-size: .95rem !important;
+            font-size: 0.95rem !important;
             font-weight: 400 !important;
             letter-spacing: 0;
             --padding-start: 0 !important;
@@ -296,19 +289,18 @@ ion-header {
                 padding: 0;
                 --placeholder-color: var(--text-light);
                 --placeholder-opacity: 1;
-                font-size: .95rem !important;
+                font-size: 0.95rem !important;
                 font-weight: 400 !important;
                 color: var(--text-black);
                 letter-spacing: 0;
                 max-width: 100%;
-
             }
         }
 
         &.item-datetime {
             ion-datetime {
                 padding: 0;
-                font-size: .95rem !important;
+                font-size: 0.95rem !important;
                 font-weight: 400 !important;
                 color: var(--text-black);
             }
@@ -320,10 +312,9 @@ ion-header {
     }
 }
 
-
 ion-modal {
     --background: rgba(0, 0, 0, 0) !important;
-    --backdrop-opacity: .1 !important;
+    --backdrop-opacity: 0.1 !important;
 }
 
 .alert-wrapper {
@@ -450,7 +441,7 @@ app-set-location {
             input {
                 box-shadow: none !important;
                 padding: 0 !important;
-                font-size: .97rem !important;
+                font-size: 0.97rem !important;
                 font-weight: 500 !important;
             }
         }
@@ -469,7 +460,7 @@ app-home {
             height: 6px;
             border-radius: 50%;
             margin: 0 3px !important;
-            opacity: .5 !important;
+            opacity: 0.5 !important;
 
             &.swiper-pagination-bullet-active {
                 opacity: 1 !important;
@@ -480,7 +471,6 @@ app-home {
 }
 
 ion-app[dir="rtl"] {
-
     .d-flex .end {
         margin-left: 0 !important;
         margin-right: auto !important;
@@ -565,7 +555,6 @@ ion-app[dir="rtl"] {
             .text_container p span {
                 text-align: left !important;
             }
-
         }
 
         ion-list ion-item .item_inner .img_box {
@@ -720,7 +709,6 @@ ion-app[dir="rtl"] {
     .picker-above-highlight.sc-ion-picker-ios {
         //        background: linear-gradient(to bottom, rgba(33,35,33,1) 20%,rgba(33,35,33,0.8) 100%) !important;
         display: none;
-
     }
 
     .picker-wrapper .picker-columns .picker-below-highlight {
@@ -790,8 +778,6 @@ ion-app[dir="rtl"] {
             .search_box {
                 background: var(--bg-secondary) !important;
             }
-
-
         }
 
         ion-list ion-item {
@@ -836,14 +822,12 @@ ion-app[dir="rtl"] {
         }
 
         ion-list {
-
             ion-item {
                 background: var(--bg-color) !important;
             }
 
             .form {
                 background: var(--bg-color) !important;
-
             }
         }
     }
@@ -876,7 +860,6 @@ ion-app[dir="rtl"] {
         }
     }
 
-
     app-insight {
         ion-content {
             &.bg_color {
@@ -888,7 +871,12 @@ ion-app[dir="rtl"] {
             background: var(--bg-color) !important;
 
             .graph_container .graph .bar_box .bar::before {
-                background: linear-gradient(to bottom, rgba(122, 200, 30, 1) 35%, rgba(122, 200, 30, 1) 36%, rgba(0, 0, 0, 0.89) 100%) !important;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(105, 67, 245, 0.678) 35%,
+                    rgb(36, 106, 255) 36%,
+                    rgba(0, 0, 0, 0.89) 100%
+                ) !important;
             }
         }
 
@@ -972,7 +960,6 @@ ion-app[dir="rtl"] {
 
         ion-list ion-item {
             background: var(--bg-color) !important;
-
         }
     }
 
@@ -1024,7 +1011,6 @@ ion-app[dir="rtl"] {
             --background: var(--bg-color) !important;
         }
     }
-
 
     app-order-info {
         ion-content {
