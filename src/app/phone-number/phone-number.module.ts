@@ -11,15 +11,14 @@ import { ViewRegistrationDetailsComponent } from "./view-registration-details/vi
 import { IonicModule } from '@ionic/angular';
 import { PhoneNumberPageRoutingModule } from './phone-number-routing.module';
 import { PhoneNumberPage } from './phone-number.page';
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TranslateModule,  
+    TranslateModule,
     PhoneNumberPageRoutingModule
   ],
   declarations: [PhoneNumberPage, RegisterUserComponent, VerifyOtpComponent, RegistrationDetailsComponent, ViewRegistrationDetailsComponent, AccountDetailsComponent, DocumentDetailsComponent]
 })
-export class PhoneNumberPageModule {}
+export class PhoneNumberPageModule { }

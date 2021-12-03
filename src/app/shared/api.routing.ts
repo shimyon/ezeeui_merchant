@@ -35,6 +35,12 @@ export class ApiRouting {
         // OrderAddNew: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Order/Customer/AddNew`,
         // OrderGetAll: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Order/Customer/GetAll`,
         // OrderGetById: (orderid) => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Order/GetById?orderId=${orderid}`
+        getlisting: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/GetListing`,
+        create: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create`,
+        basic: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/Basic`,
+        financial: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/Financial`,
+        documents: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/Documents`,
+        detailtiming: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/DetailTiming`,
     };
 
     goTo() {

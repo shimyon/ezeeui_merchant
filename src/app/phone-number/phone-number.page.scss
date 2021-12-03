@@ -36,14 +36,12 @@
 }
 
 .animate__animated.animate__fadeInUp {
-    --animate-duration: .2s;
+    --animate-duration: 0.2s;
 }
 
 .animate__animated.animate__zoomInUp {
-    --animate-duration: .2s;
+    --animate-duration: 0.2s;
 }
-
-
 
 ion-footer {
     background: var(--bg-color);
@@ -54,7 +52,7 @@ ion-footer {
 
         img {
             width: auto;
-            display: block
+            display: block;
         }
     }
 
@@ -84,18 +82,17 @@ ion-footer {
                     --border-radius: 50px;
                     width: fit-content;
                     height: 35px;
-                    font-size: .9rem;
+                    font-size: 0.9rem;
                     min-width: 108px;
                     --padding-start: 10px;
                     --padding-end: 10px;
                 }
             }
-
         }
     }
 }
 
-@media screen and (max-height:680px) {
+@media screen and (max-height: 680px) {
     .banner {
         top: 13%;
 

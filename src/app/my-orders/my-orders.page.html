@@ -9,8 +9,11 @@
         <ion-segment-button mode="ios" value="new_orders">
             <ion-label>{{'new_orders' | translate}}</ion-label>
         </ion-segment-button>
-        <ion-segment-button mode="ios" value="past_orders">
-            <ion-label>{{'past_orders' | translate}}</ion-label>
+        <ion-segment-button mode="ios" value="delivered">
+            <ion-label>{{'delivered' | translate}}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button mode="ios" value="Cancelled">
+            <ion-label>{{'Cancelled' | translate}}</ion-label>
         </ion-segment-button>
     </ion-segment>
 </ion-header>
@@ -189,7 +192,7 @@
                     </div>
                 </div>
             </ion-item>
-              <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -360,7 +363,7 @@
                     </div>
                 </div>
             </ion-item>
-              <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -531,7 +534,7 @@
                     </div>
                 </div>
             </ion-item>
-              <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -702,7 +705,7 @@
                     </div>
                 </div>
             </ion-item>
-              <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -873,8 +876,8 @@
                     </div>
                 </div>
             </ion-item>
-            
-              <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
+
+            <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -1045,7 +1048,7 @@
                     </div>
                 </div>
             </ion-item>
-              <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="pending animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -1218,12 +1221,7 @@
             </ion-item>
         </ion-list>
 
-
-
-
-
-
-        <ion-list lines="none" *ngSwitchCase="'past_orders'">
+        <ion-list lines="none" *ngSwitchCase="'delivered'">
 
             <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
@@ -1395,7 +1393,7 @@
                     </div>
                 </div>
             </ion-item>
-                <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -1565,7 +1563,7 @@
                     </div>
                 </div>
             </ion-item>
-                <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -1735,7 +1733,7 @@
                     </div>
                 </div>
             </ion-item>
-                <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -1905,7 +1903,7 @@
                     </div>
                 </div>
             </ion-item>
-                <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -2075,8 +2073,8 @@
                     </div>
                 </div>
             </ion-item>
-            
-                <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
+
+            <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -2246,7 +2244,7 @@
                     </div>
                 </div>
             </ion-item>
-                <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -2416,7 +2414,7 @@
                     </div>
                 </div>
             </ion-item>
-                <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
+            <ion-item class="delivered animate__animated animate__fadeInRight" (click)="order_info()">
                 <div class="item_inner">
                     <div class="item_info d-flex">
                         <div class="itme_img">
@@ -2586,7 +2584,7 @@
                     </div>
                 </div>
             </ion-item>
-            
+
         </ion-list>
     </div>
 </ion-content>
