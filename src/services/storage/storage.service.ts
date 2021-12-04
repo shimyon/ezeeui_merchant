@@ -5,6 +5,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class StorageService {
+  bankAccountNumber(): string {
+    throw new Error('Method not implemented.');
+  }
   
   private _categoryData:any;
   private _verificationOtp:any;

@@ -9,32 +9,29 @@
 
 <ion-content>
 
-    <ion-item>
-        <ion-label position="floating">Account Holder Name</ion-label>
-        <ion-input type="text" required></ion-input>
 
-    </ion-item>
+    <ion-label position="fixed">Account Holder Name</ion-label><br>
+    <ion-input type="text" required></ion-input>
 
-    <ion-item>
-        <ion-label position="floating">IFSC code</ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
 
-    <ion-item>
-        <ion-label position="floating">Bank Account Number</ion-label>
-        <ion-input maxlength="16" type="tel" required></ion-input>
-    </ion-item>
+    <ion-label position="fixed">IFSC code</ion-label><br>
+    <ion-input type="text" required></ion-input>
 
-    <ion-item>
-        <ion-label position="floating"> Re-enter Bank Account Number</ion-label>
-        <ion-input maxlengh="16" type="tel" required></ion-input>
-    </ion-item>
 
-    <ion-item>
-        <ion-label>Accept COD Orders</ion-label>
-        <ion-checkbox checked="true"></ion-checkbox>
+    <ion-label position="fixed">Bank Account Number</ion-label><br>
+    <ion-input maxlength="16" type="tel" required></ion-input>
 
-    </ion-item>
+
+
+    <ion-label position="fixed"> Re-enter Bank Account Number</ion-label><br>
+    <ion-input maxlengh="16" type="tel" required></ion-input>
+
+
+
+    <ion-label>Accept COD Orders</ion-label>
+    <ion-checkbox checked="true"></ion-checkbox>
+
+
 </ion-content>
 <ion-footer class="ion-no-border">
     <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>

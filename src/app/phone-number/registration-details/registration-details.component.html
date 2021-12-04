@@ -9,54 +9,61 @@
 
 <ion-content>
 
-    <ion-item>
-        <ion-label position="floating">Name</ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-            <ion-select-option value="brown"> Select Services(s)</ion-select-option>
-            <ion-select-option value="jammu">jammu</ion-select-option>
-            <ion-select-option value="blonde">jammu</ion-select-option>
-            <ion-select-option value="black">jammu</ion-select-option>
-            <ion-select-option value="red">jammu</ion-select-option>
-        </ion-select>
-    </ion-item>
 
-    <ion-item>
-        <ion-label position="floating">Business Name</ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
+    <ion-label position=" fixed">Name</ion-label><br>
+    <ion-input type="text" required></ion-input>
 
-    <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="text" required></ion-input>
-    </ion-item>
+    <br>
 
-    <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="Password" required></ion-input>
-    </ion-item>
+    <ion-label>Select Services</ion-label>
+    <ion-select [(ngModel)]="SelectBox" multiple="true">
+        <ion-select-option value="1">Option 1</ion-select-option>
+        <ion-select-option value="2">Option 2</ion-select-option>
+        <ion-select-option value="3">Option 3</ion-select-option>
+        <ion-select-option value="4">Option 4</ion-select-option>
+        <ion-select-option value="5">Option 5</ion-select-option>
+        <ion-select-option value="6">Option 6</ion-select-option>
+    </ion-select>
 
-    <ion-item>
-        <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-            <ion-select-option value="brown">Select City</ion-select-option>
-            <ion-select-option value="jammu">jammu</ion-select-option>
-            <ion-select-option value="blonde">jammu</ion-select-option>
-            <ion-select-option value="black">jammu</ion-select-option>
-            <ion-select-option value="red">jammu</ion-select-option>
-        </ion-select>
-    </ion-item>
 
-    <ion-item>
-        <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-            <ion-select-option value="brown">Select State</ion-select-option>
-            <ion-select-option value="jammu">jammu</ion-select-option>
-            <ion-select-option value="blonde">jammu</ion-select-option>
-            <ion-select-option value="black">jammu</ion-select-option>
-            <ion-select-option value="red">jammu</ion-select-option>
-        </ion-select>
-    </ion-item>
+    <br>
+
+    <ion-label position=" fixed">Business Name</ion-label><br>
+    <ion-input type="text" required></ion-input>
+
+
+
+    <ion-label position=" fixed">Email</ion-label><br>
+    <ion-input type="text" required></ion-input>
+
+
+
+    <ion-label position=" fixed">Password</ion-label><br>
+    <ion-input type="Password" required></ion-input>
+
+
+    <br>
+    <!-- <label> Select City</label> -->
+
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="brown">Select City</ion-select-option>
+        <ion-select-option value="jammu">jammu</ion-select-option>
+        <ion-select-option value="blonde">jammu</ion-select-option>
+        <ion-select-option value="black">jammu</ion-select-option>
+        <ion-select-option value="red">jammu</ion-select-option>
+    </ion-select>
+
+    <br>
+    <!-- <ion-label>Select State</ion-label> -->
+
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="brown">Select State</ion-select-option>
+        <ion-select-option value="jammu">jammu</ion-select-option>
+        <ion-select-option value="blonde">jammu</ion-select-option>
+        <ion-select-option value="black">jammu</ion-select-option>
+        <ion-select-option value="red">jammu</ion-select-option>
+    </ion-select>
+
 
 </ion-content>
 <ion-footer class="ion-no-border">
