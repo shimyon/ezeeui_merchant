@@ -4,37 +4,52 @@ import { ApiRouting } from 'src/app/shared/api.routing';
 import { HttpService } from 'src/services/httpCall/http.service';
 
 @Component({
-  selector: 'app-registration-details',
-  templateUrl: './registration-details.component.html',
-  styleUrls: ['./registration-details.component.scss'],
-
+  selector: 'app-store-details',
+  templateUrl: './store-details.component.html',
+  styleUrls: ['./store-details.component.scss'],
 })
-export class RegistrationDetailsComponent implements OnInit {
-  SelectBox = "";
-
+export class StoreDetailsComponent implements OnInit {
   constructor(private route: Router,
     private $http: HttpService,
     private $api: ApiRouting) { }
-  "storeId": 0
-  "storeName": "string"
-  "cityId": 0
-  "pinCodeLookupId": 0
-  "proprietorName": "string"
-  "serviceId": "string"
+  storeId: 0
+  quickCode: any
+  description: any
+  imageUrl: any
+  mailingAddress: any
+  email: string
+  mobileNumber: any
+  contactNumber: any
+
+  opening: any
+  closing: any
+  deliveryChargesCode: 0
+  cod: true
+  onlyCodAvailable: true
+  minOrderAmount: 0
   ngOnInit() { }
 
   register() {
-    this.route.navigate(['./phone-number/store-details']);
+    this.route.navigate(['./phone-number/address-details']);
   }
 
   create() {
     const payload = {
-      "storeId": 0,
-      "storeName": "string",
-      "cityId": 0,
-      "pinCodeLookupId": 0,
-      "proprietorName": "string",
-      "serviceId": "string"
+      quickCode: this.quickCode,
+      storeId: 0,
+      description: '',
+      imageUrl: '',
+      mailingAddress: '',
+      email: '',
+      mobileNumber: '',
+      contactNumber: '',
+
+      opening: '',
+      closing: '',
+      deliveryChargesCode: 0,
+      cod: true,
+      onlyCodAvailable: true,
+      minOrderAmount: 0
     };
     debugger
     this.$http.httpCall().post(this.$api.goTo().create(), payload, {})
@@ -57,4 +72,5 @@ export class RegistrationDetailsComponent implements OnInit {
         // });
       })
   }
+
 }

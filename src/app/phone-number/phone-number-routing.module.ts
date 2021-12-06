@@ -7,6 +7,8 @@ import { DocumentDetailsComponent } from "./document-details/document-details.co
 import { VerifyOtpComponent } from "./verify-otp/verify-otp.component";
 import { ViewRegistrationDetailsComponent } from "./view-registration-details/view-registration-details.component";
 import { PhoneNumberPage } from './phone-number.page';
+import { StoreDetailsComponent } from './store-details/store-details.component';
+import { AddressDetailsComponent } from './address-details/address-details.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
     component: AccountDetailsComponent
   },
   {
+    path: 'store-details',
+    component: StoreDetailsComponent
+  },
+  {
+    path: 'address-details',
+    component: AddressDetailsComponent
+  },
+  {
     path: 'document-details',
     component: DocumentDetailsComponent
   },
@@ -39,4 +49,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PhoneNumberPageRoutingModule {}
+export class PhoneNumberPageRoutingModule { }
