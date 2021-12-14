@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "789271148392",
+    "project_id": "notification-56229",
+    "storage_bucket": "notification-56229.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789271148392:android:1ee744d27fdd898e8548dd",
+        "android_client_info": {
+          "package_name": "delivoo.seller.ionic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789271148392-9kdaatc5c748b3k9qb09lvusqenqaj62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRH7bCR9Vr7c42TvRcLYEsAcTZB1LuKWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789271148392-9kdaatc5c748b3k9qb09lvusqenqaj62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
