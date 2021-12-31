@@ -3,53 +3,27 @@
     <ion-buttons slot="start">
       <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title>Business Details</ion-title>
+    <ion-title>Address Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-
-  <!-- <label> Select City</label> -->
-
-  <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-    <ion-select-option value="brown">Select City</ion-select-option>
-    <ion-select-option value="jammu">jammu</ion-select-option>
-    <ion-select-option value="blonde">jammu</ion-select-option>
-    <ion-select-option value="black">jammu</ion-select-option>
-    <ion-select-option value="red">jammu</ion-select-option>
-  </ion-select>
-
-  <br>
-  <!-- <ion-label>Select State</ion-label> -->
-
-  <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-    <ion-select-option value="brown">Select State</ion-select-option>
-    <ion-select-option value="jammu">jammu</ion-select-option>
-    <ion-select-option value="blonde">jammu</ion-select-option>
-    <ion-select-option value="black">jammu</ion-select-option>
-    <ion-select-option value="red">jammu</ion-select-option>
-  </ion-select>
-  <br>
-
-  <ion-label position=" fixed">Pincode</ion-label><br>
-  <ion-input type="tel" maxlength="06" required></ion-input>
-
-
-  <br>
-  <ion-label position=" fixed">longitude</ion-label><br>
+  storeId: 0<br>
+  <ion-label position=" fixed">Mailing Address</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
-  <ion-label position=" fixed">latitude</ion-label><br>
+  <ion-label position=" fixed">Email</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
-  <ion-label position=" fixed">landmark</ion-label><br>
+  <ion-label position=" fixed">Contact Number</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
-  <ion-label position=" fixed">displayAddress</ion-label><br>
+  <ion-label position=" fixed">Display Address</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
-
+  <ion-label position=" fixed">Landmark</ion-label><br>
+  <ion-input type="text" required></ion-input>
+  <br>
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>

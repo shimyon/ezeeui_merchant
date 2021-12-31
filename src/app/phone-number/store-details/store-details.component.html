@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content>
+  
   storeId: 0<br>
   <ion-label position=" fixed">quickCode</ion-label><br>
   <ion-input type="text" required></ion-input>
@@ -20,14 +21,10 @@
   <ion-label position=" fixed">imageURL</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
-  <ion-label position=" fixed">mailingAddress</ion-label><br>
+  <ion-label position=" fixed">longitude</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
-  <ion-label position=" fixed">Email</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
-
-  <ion-label position=" fixed">ContactNumber</ion-label><br>
+  <ion-label position=" fixed">latitude</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
   <ion-label position=" fixed">Opening</ion-label><br>
@@ -36,14 +33,20 @@
   <ion-label position=" fixed">Closing</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
-  <ion-label position=" fixed">Delivery Charges Code</ion-label><br>
+  
+ 
+  <ion-select [(ngModel)]="selecteddeliveryCharges" value="brown" okText="Okay" cancelText="Dismiss">
+    <ion-select-option value="">Select delivery Charges</ion-select-option>
+    <ion-select-option *ngFor="let item of deliveryCharges" [value]="item.key">
+        {{item.value}}</ion-select-option>
+</ion-select>
+<br>
+  <ion-label>Only COD Available</ion-label>
+  <ion-checkbox checked="true"></ion-checkbox>
+  <br>
+  <ion-label position=" fixed">Min Order Amount</ion-label><br>
   <ion-input type="text" required></ion-input>
   <br>
-  <ion-label>Accept COD Orders</ion-label>
-  <ion-checkbox checked="true"></ion-checkbox>
-
-  <br>
-
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>

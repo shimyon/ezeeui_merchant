@@ -20,7 +20,7 @@ export class HttpService {
 
 
   setToken = async (returnToken) => {
-    localStorage.setItem(ACTION_TYPE.ACCESS_TOKEN, JSON.stringify({ token: returnToken }));
+    localStorage.setItem(ACTION_TYPE.ACCESS_TOKEN, returnToken);
     // return await this.nativeStorage.setNative(ACTION_TYPE.ACCESS_TOKEN, { token: returnToken }).then(res => {
     //   return res;
     // });
@@ -40,6 +40,7 @@ export class HttpService {
     }
     return {
       get: (url, payload, headers) => {
+        headers = this.getHeaderToken(headers);
         console.log(' ====== PAYLOAD ====== ', payload);
         return new Promise((resolve, reject) => {
           this.http.get(url, payload, headers).then(res => {
@@ -57,6 +58,7 @@ export class HttpService {
         });
       },
       post: (url, payload, headers) => {
+        headers = this.getHeaderToken(headers);
         console.log(' ====== PAYLOAD ====== ', payload);
         return new Promise((resolve, reject) => {
           this.http.post(url, payload, headers).then(res => {
@@ -162,11 +164,13 @@ export class HttpService {
 
 
 
-  getHeaderToken = async () => {
-    const headerToken = localStorage.getItem(ACTION_TYPE.ACCESS_TOKEN);
-    const header = {
-      Authorization: 'Bearer ' + headerToken
-    };
+  getHeaderToken = (header) => {
+    if (header) {
+      const headerToken = localStorage.getItem(ACTION_TYPE.ACCESS_TOKEN);
+      if (headerToken) {
+        header['Authorization'] = 'Bearer ' + headerToken
+      }
+    }
     return header;
   }
 

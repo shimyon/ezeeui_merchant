@@ -5,14 +5,13 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class StorageService {
-  bankAccountNumber(): string {
+    bankAccountNumber(): string {
     throw new Error('Method not implemented.');
   }
   
   private _categoryData:any;
   private _verificationOtp:any;
-
- 
+  
   private _address = new BehaviorSubject<any>(null);
   public address$ = this._address.asObservable();
   constructor() { }
@@ -31,7 +30,6 @@ export class StorageService {
     this._verificationOtp=value;
   }
  
-
   setAddress=(value)=>{
     this._address.next(value);
   }

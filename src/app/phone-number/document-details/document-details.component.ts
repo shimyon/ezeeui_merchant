@@ -25,7 +25,29 @@ export class DocumentDetailsComponent implements OnInit {
   ownerPicUrl: string
   shopPicUrl: string
   logoUrl: string
-  ngOnInit() { }
+  documenttype = []
+  selecteddocument=null;
+ 
+  getdropdown() {
+    let url =this.$api.goTo().getdropdown();
+    this.$http.httpCall().get(url, {}, {})
+      .then(data => {
+            const res: any = data;
+              if (res.status === 200) {
+                data = JSON.parse(res.data);
+                data= data['response'];
+                this.documenttype = data['documentType'];                 
+              }
+      },
+        err => {
+          debugger
+        })
+      .catch(error => {
+        console.log(error);
+      });
+
+  }
+  ngOnInit() {this.getdropdown() }
 
   register() {
     this.route.navigate(['./phone-number/view-registration']);
@@ -46,10 +68,8 @@ export class DocumentDetailsComponent implements OnInit {
       shopPicUrl: '',
       logoUrl: '',
     };
-    debugger
     this.$http.httpCall().post(this.$api.goTo().documents(), payload, {})
       .then(data => {
-        debugger
         const res: any = data;
         //   if (res.status === 200) {
         //     localStorage.setItem("phoneNumber", this.phoneNumber);

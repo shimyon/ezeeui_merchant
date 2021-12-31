@@ -16,17 +16,36 @@ export class AccountDetailsComponent implements OnInit {
   accoungHolderName: string
   bankDetailUrl: any
   bankDetailUploadDate: any
-
+  banktype = []
+  selectedbank=null;
   constructor(private route: Router,
     private $http: HttpService,
     private $api: ApiRouting) { }
-
-  ngOnInit() { }
+           
+  ngOnInit() {  this.getdropdown()}
 
   register() {
     this.route.navigate(['./phone-number/document-details']);
   }
+  getdropdown() {
+    let url =this.$api.goTo().getdropdown();
+    this.$http.httpCall().get(url, {}, {})
+      .then(data => {
+            const res: any = data;
+              if (res.status === 200) {
+                data = JSON.parse(res.data);
+                data= data['response'];
+                this.banktype = data['bankAccountTypeCollection'];
+              }
+      },
+        err => {
+          debugger
+        })
+      .catch(error => {
+        console.log(error);
+      });
 
+  }
   bankdetail() {
     const payload = {
       bankAccountNumber: this.bankAccountNumber,
@@ -37,10 +56,8 @@ export class AccountDetailsComponent implements OnInit {
       bankDetailUrl: '',
       bankDetailUploadDate: ''
     };
-    debugger
     this.$http.httpCall().post(this.$api.goTo().financial(), payload, {})
       .then(data => {
-        debugger
         const res: any = data;
         //   if (res.status === 200) {
         //     localStorage.setItem("phoneNumber", this.phoneNumber);

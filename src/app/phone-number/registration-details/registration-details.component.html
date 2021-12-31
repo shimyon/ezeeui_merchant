@@ -11,27 +11,36 @@
 
     <ion-label position=" fixed">Store Name</ion-label><br>
     <ion-input type="text" required></ion-input>
-
-
     <br>
-
+    <ion-select [(ngModel)]="selectedState"  value="brown" okText="Okay" cancelText="Dismiss" (onChange)="cityChange()">
+        <ion-select-option value="">Select State</ion-select-option>
+        <ion-select-option *ngFor="let item of states" [value]="item.key">
+            {{item.value}}</ion-select-option>
+    </ion-select>
+    <br>
+    <ion-select [(ngModel)]="selectedcity" value="brown" okText="Okay" cancelText="Dismiss" (onChange)="pincodeChange()" [disabled]="cityDisabled">
+        <ion-select-option value="">Select City</ion-select-option>
+        <ion-select-option *ngFor="let item of city" [value]="item.key">
+            {{item.value}}</ion-select-option>
+    </ion-select>
+    <br>
+    <ion-select [(ngModel)]="selectedpincode" value="brown" okText="Okay" cancelText="Dismiss" [disabled]="pincodeDisabled">
+        <ion-select-option value="">Select Pincode</ion-select-option>
+        <ion-select-option *ngFor="let item of Pincode" [value]="item.key">
+            {{item.value}}</ion-select-option>
+    </ion-select>
+    <br>
     <ion-label position=" fixed">Proprietor Name</ion-label><br>
     <ion-input type="text" required></ion-input>
-
     <br>
-
-    <ion-label>Select Services</ion-label>
-    <ion-select [(ngModel)]="SelectBox" multiple="true">
-        <ion-select-option value="6">Grocery & Essentials</ion-select-option>
-        <ion-select-option value="1">Fruits & Vegetables</ion-select-option>
-        <ion-select-option value="2">Food Delivery</ion-select-option>
-        <ion-select-option value="4">Medicines</ion-select-option>
-        <ion-select-option value="5">Paan Shop</ion-select-option>
-        <ion-select-option value="6">Health & Wellness</ion-select-option>
-        <ion-select-option value="6">Gifts & Lifestyle</ion-select-option>
-        <ion-select-option value="6">Meat & Fish</ion-select-option>
+    
+    <ion-select [(ngModel)]="selectedService" multiple="true">
+        <ion-select-option value="">Select Services</ion-select-option>
+        <ion-select-option *ngFor="let item of service1" [value]="item.key">
+            {{item.value}}</ion-select-option>
     </ion-select>
-
+    <br>
+    
 </ion-content>
 <ion-footer class="ion-no-border">
     <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>

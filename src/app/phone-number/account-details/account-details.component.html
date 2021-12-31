@@ -22,20 +22,14 @@
 
     <ion-label position="fixed">IFSC code</ion-label><br>
     <ion-input type="text" required></ion-input>
-
     <ion-label position="fixed"> Account Type:</ion-label><br>
-    <ion-list>
-        <ion-radio-group value="type">
-
-            <ion-radio slot="start" value="Saving Account"></ion-radio>
-            <ion-label>Saving Account</ion-label>
-            <br>
-            <ion-radio slot="start" value="Current Account"></ion-radio>
-            <ion-label>Current Account</ion-label>
-
-        </ion-radio-group>
-    </ion-list>
-
+    <ion-select [(ngModel)]="selectedbank" value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="">Select Bank Account Type:</ion-select-option>
+        <ion-select-option *ngFor="let item of   banktype" [value]="item.key">
+            {{item.value}}</ion-select-option>
+    </ion-select>
+    <br>
+    
     <ion-label position="fixed">Account Holder Name</ion-label><br>
     <ion-input type="text" required></ion-input>
 

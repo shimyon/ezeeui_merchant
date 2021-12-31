@@ -37,10 +37,13 @@ export class ApiRouting {
         // OrderGetById: (orderid) => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Order/GetById?orderId=${orderid}`
         getlisting: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/GetListing`,
         create: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create`,
+        getdropdown: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/GetValuesForDropdow`,
         basic: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/Basic`,
+        address: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/Address`,
         financial: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/Financial`,
         documents: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/Documents`,
         detailtiming: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/DetailTiming`,
+        getcitypincode: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/GetCityPincode`,
     };
 
     goTo() {

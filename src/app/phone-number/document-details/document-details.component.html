@@ -10,19 +10,12 @@
 <ion-content>
     <ion-item lines="none" class="animate__animated animate__fadeInUp">
         <div class="item_inner d-flex">
-            <ion-list>
-                <ion-item>
-                    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-                        <ion-select-option value="brown">Select Document</ion-select-option>
-                        <ion-select-option value="jammu">Adhar card</ion-select-option>
-                        <ion-select-option value="blonde">PAN card</ion-select-option>
-                        <ion-select-option value="black">GST certificate</ion-select-option>
-                        <ion-select-option value="red">FSSAI certificate</ion-select-option>
-                        <ion-select-option value="blue">Bank passbook or Cancel cheque</ion-select-option>
-                    </ion-select>
-                </ion-item>
-
-            </ion-list>
+            <ion-select [(ngModel)]="selecteddocument" value="brown" okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="">Select Document</ion-select-option>
+                <ion-select-option *ngFor="let item of documenttype" [value]="item.key">
+                    {{item.value}}</ion-select-option>
+            </ion-select>
+            <br>
         </div>
     </ion-item>
     <ion-item>

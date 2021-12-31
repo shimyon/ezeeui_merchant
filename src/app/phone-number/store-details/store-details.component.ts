@@ -16,21 +16,41 @@ export class StoreDetailsComponent implements OnInit {
   quickCode: any
   description: any
   imageUrl: any
-  mailingAddress: any
-  email: string
-  mobileNumber: any
-  contactNumber: any
-
+  
   opening: any
   closing: any
   deliveryChargesCode: 0
-  cod: true
   onlyCodAvailable: true
   minOrderAmount: 0
-  ngOnInit() { }
+  deliveryCharges = []
+  selecteddeliveryCharges=null;
+ 
+
+  ngOnInit() {this.getdropdown() }
 
   register() {
     this.route.navigate(['./phone-number/address-details']);
+  }
+
+  getdropdown() {
+    let url =this.$api.goTo().getdropdown();
+    this.$http.httpCall().get(url, {}, {})
+      .then(data => {
+            const res: any = data;
+              if (res.status === 200) {
+                data = JSON.parse(res.data);
+                data= data['response'];
+                this.deliveryCharges = data['deliveryChargesCollection'];
+                               
+              }
+      },
+        err => {
+          debugger
+        })
+      .catch(error => {
+        console.log(error);
+      });
+
   }
 
   create() {
@@ -39,22 +59,15 @@ export class StoreDetailsComponent implements OnInit {
       storeId: 0,
       description: '',
       imageUrl: '',
-      mailingAddress: '',
-      email: '',
-      mobileNumber: '',
-      contactNumber: '',
-
+      
       opening: '',
       closing: '',
       deliveryChargesCode: 0,
-      cod: true,
       onlyCodAvailable: true,
       minOrderAmount: 0
     };
-    debugger
     this.$http.httpCall().post(this.$api.goTo().create(), payload, {})
       .then(data => {
-        debugger
         const res: any = data;
         //   if (res.status === 200) {
         //     localStorage.setItem("phoneNumber", this.phoneNumber);

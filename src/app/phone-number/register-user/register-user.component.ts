@@ -36,10 +36,8 @@ export class RegisterUserComponent implements OnInit {
       otp: "",
       otpExpirationTime: ''
     };
-    debugger
     this.$http.httpCall().post(this.$api.goTo().merchantLogin(), payload, {})
       .then(data => {
-        debugger
         const res: any = data;
         if (res.status === 200) {
           localStorage.setItem("phoneNumber", this.phoneNumber);

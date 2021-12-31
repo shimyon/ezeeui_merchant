@@ -24,7 +24,6 @@ export class VerifyOtpComponent implements OnInit {
     private $storageService: StorageService) { }
 
   ngOnInit() {
-    debugger
     this.getverificationOtp = this.$storageService.getVerification();
     this.verificationOTP = this.getverificationOtp["otp"];
     this.expirationTime = this.getverificationOtp["otpExpirationTime"];
@@ -39,7 +38,6 @@ export class VerifyOtpComponent implements OnInit {
     let payload = {
       phoneNumber: this.getverificationOtp['phoneNumber']
     }
-    debugger
     this.$http.httpCall().post(this.$api.goTo().resndOtpMerchant(), payload, {}).then((res: any) => {
       let data = JSON.parse(res.data);
       console.log(data['response']);
@@ -52,11 +50,36 @@ export class VerifyOtpComponent implements OnInit {
   }
 
   register() {
-    this.route.navigate(['./phone-number/registration']);
+    let payload = {
+      phoneNumber: this.getverificationOtp['phoneNumber'],
+      otp: this.verificationOTP
+    }
+    this.$http.httpCall().post(this.$api.goTo().loginUsingOtp(), payload, {}).then((res: any) => {
+      if (res.status == 200) {
+        let data = JSON.parse(res.data);
+        data = data['response'];
+        let userName = data['userName'];
+        localStorage.setItem("userName", userName);
+        let accessToken = data['accessToken'];
+        let refreshToken = data['refreshToken'];
+        localStorage.setItem("refreshToken", refreshToken);
+        let refreshTokenExpirationTime = data['refreshTokenExpirationTime'];
+        localStorage.setItem("refreshTokenExpirationTime", refreshTokenExpirationTime);
+        this.$http.setToken(accessToken);
+        this.route.navigate(['./phone-number/registration']);
+      } else {
+        alert("Unable to login.");
+      }
+
+    }, err => {
+      alert(err);
+    }).catch(error => {
+      alert(error);
+    })
+
   }
 
   intervalTimer() {
-    debugger
     let min = new Date(this.expirationTime).getMinutes()
     let timer = 60 * min;
     let minutes: any;
