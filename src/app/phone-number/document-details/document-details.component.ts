@@ -13,18 +13,8 @@ export class DocumentDetailsComponent implements OnInit {
   constructor(private route: Router,
     private $http: HttpService,
     private $api: ApiRouting) { }
-  storeId: 0
-  licenceNumber: string
-  licenceUrl: string
-  panCardNumber: string
-  panCardUrl: string
-  gstNumber: string
-  gstUrl: string
-  addharCardNumber: string
-  addharCardUrl: string
-  ownerPicUrl: string
-  shopPicUrl: string
-  logoUrl: string
+  storeId: ''
+  documentTypeId: ""
   documenttype = []
   selecteddocument=null;
  
@@ -47,7 +37,11 @@ export class DocumentDetailsComponent implements OnInit {
       });
 
   }
-  ngOnInit() {this.getdropdown() }
+  ngOnInit() {}
+
+  ionViewDidEnter() {
+    this.getdropdown()
+  }
 
   register() {
     this.route.navigate(['./phone-number/view-registration']);
@@ -55,36 +49,23 @@ export class DocumentDetailsComponent implements OnInit {
 
   document() {
     const payload = {
-      licenceNumber: this.licenceNumber,
-      storeId: 0,
-      licenceUrl: '',
-      panCardNumber: '',
-      panCardUrl: '',
-      gstNumber: '',
-      gstUrl: '',
-      addharCardNumber: '',
-      addharCardUrl: '',
-      ownerPicUrl: '',
-      shopPicUrl: '',
-      logoUrl: '',
+    "storeId": 0,
+    "documentTypeId": this.selecteddocument
     };
-    this.$http.httpCall().post(this.$api.goTo().documents(), payload, {})
+    this.$http.httpCall().post(this.$api.goTo().document(), payload, {})
       .then(data => {
+        debugger
         const res: any = data;
-        //   if (res.status === 200) {
-        //     localStorage.setItem("phoneNumber", this.phoneNumber);
-        //     data = JSON.parse(res.data);
-        //     payload.otp = data['response'].otp;
-        //     payload.otpExpirationTime = data['response'].otpExpirationTime;
-        //     this._storageService.setVerification(payload);
-        //     this.register();
-        //   }
-        // }, err => {
-        //   debugger
-        // })
-        // .catch(error => {
-        //   console.log(error);
-        // });
-      })
+          if (res.status === 200) {
+            alert("save data successfully")
+            //this._storageService.setVerification(payload);
+            this.register();
+          }
+        }, err => {
+          debugger
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
   }
-}

@@ -10,44 +10,54 @@
 </ion-header>
 
 <ion-content>
-  
-  storeId: 0<br>
-  <ion-label position=" fixed">quickCode</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
-  <ion-label position=" fixed">description</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
-  <ion-label position=" fixed">imageURL</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
-  <ion-label position=" fixed">longitude</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
-  <ion-label position=" fixed">latitude</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
-  <ion-label position=" fixed">Opening</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
-  <ion-label position=" fixed">Closing</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
-  
- 
+  <ion-item lines="none">
+    <ion-label position="stacked">quickCode</ion-label><br>
+    <ion-input type="text" [(ngModel)]="quickCode" required></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label position="stacked">description</ion-label><br>
+    <ion-input type="textarea" [(ngModel)]="description" required></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label position="stacked">imageURL</ion-label><br>
+    <ion-input type="text" [(ngModel)]="imageUrl" required></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label position="stacked">longitude</ion-label><br>
+    <ion-input type="text" [(ngModel)]="longitude" required></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label position="stacked">latitude</ion-label><br>
+    <ion-input type="text" [(ngModel)]="latitude" required></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label position="stacked">Opening</ion-label><br>
+    <ion-datetime [(ngModel)]="Opening" displayFormat="hh:mm A" presentation="time"></ion-datetime>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label position="stacked">Closing</ion-label><br>
+    <ion-datetime [(ngModel)]="Closing" displayFormat="hh:mm A" presentation="time"></ion-datetime>
+  </ion-item>
+
+<ion-item lines="none">
+  <ion-label position="stacked">delivery Charges</ion-label><br>
   <ion-select [(ngModel)]="selecteddeliveryCharges" value="brown" okText="Okay" cancelText="Dismiss">
     <ion-select-option value="">Select delivery Charges</ion-select-option>
     <ion-select-option *ngFor="let item of deliveryCharges" [value]="item.key">
-        {{item.value}}</ion-select-option>
-</ion-select>
-<br>
-  <ion-label>Only COD Available</ion-label>
-  <ion-checkbox checked="true"></ion-checkbox>
-  <br>
-  <ion-label position=" fixed">Min Order Amount</ion-label><br>
-  <ion-input type="text" required></ion-input>
-  <br>
+      {{item.value}}</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item lines="none">
+  <ion-label position="stacked">Only COD Available</ion-label>
+  <ion-checkbox [(ngModel)]="onlyCodAvailable" checked="true"></ion-checkbox>
+</ion-item>
+<ion-item lines="none">
+  <ion-label position="stacked">Min Order Amount</ion-label><br>
+  <ion-input type="tel" [(ngModel)]="minOrderAmount" required></ion-input>
+</ion-item>
+
 </ion-content>
 <ion-footer class="ion-no-border">
-  <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>
+  <ion-button size="large" expand="full" class="btn" (click)="basic()">{{'continue' | translate}}</ion-button>
 </ion-footer>

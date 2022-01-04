@@ -8,40 +8,57 @@
 </ion-header>
 
 <ion-content>
+    <ion-item lines="none">
 
-    <ion-label position=" fixed">Store Name</ion-label><br>
-    <ion-input type="text" required></ion-input>
-    <br>
-    <ion-select [(ngModel)]="selectedState"  value="brown" okText="Okay" cancelText="Dismiss" (onChange)="cityChange()">
-        <ion-select-option value="">Select State</ion-select-option>
-        <ion-select-option *ngFor="let item of states" [value]="item.key">
-            {{item.value}}</ion-select-option>
+        <ion-label position="stacked">Store Name</ion-label><br>
+        <ion-input type="text" [(ngModel)]="storeName" required></ion-input>
+
+    </ion-item>
+
+    <ion-item lines="none">
+        <ion-label position="stacked">State Name</ion-label><br>
+        <ion-select [(ngModel)]="selectedState" value="brown" okText="Okay" cancelText="Dismiss"
+            (ionChange)="stateChange()">
+            <ion-select-option value="">Select State</ion-select-option>
+            <ion-select-option *ngFor="let item of states" [value]="item.key">
+                {{item.value}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked">City Name</ion-label><br>
+        <ion-select [(ngModel)]="selectedcity" value="brown" okText="Okay" cancelText="Dismiss"
+            [disabled]="cityDisabled">
+            <ion-select-option value="">Select City</ion-select-option>
+            <ion-select-option *ngFor="let item of city" [value]="item.key">
+                {{item.value}}</ion-select-option>
     </ion-select>
-    <br>
-    <ion-select [(ngModel)]="selectedcity" value="brown" okText="Okay" cancelText="Dismiss" (onChange)="pincodeChange()" [disabled]="cityDisabled">
-        <ion-select-option value="">Select City</ion-select-option>
-        <ion-select-option *ngFor="let item of city" [value]="item.key">
-            {{item.value}}</ion-select-option>
-    </ion-select>
-    <br>
-    <ion-select [(ngModel)]="selectedpincode" value="brown" okText="Okay" cancelText="Dismiss" [disabled]="pincodeDisabled">
-        <ion-select-option value="">Select Pincode</ion-select-option>
-        <ion-select-option *ngFor="let item of Pincode" [value]="item.key">
-            {{item.value}}</ion-select-option>
-    </ion-select>
-    <br>
-    <ion-label position=" fixed">Proprietor Name</ion-label><br>
-    <ion-input type="text" required></ion-input>
-    <br>
+</ion-item>
+
+    <ion-item lines="none">
+        <ion-label position="stacked">Pincode</ion-label><br>
+        <ion-select [(ngModel)]="selectedpincode" value="brown" okText="Okay" cancelText="Dismiss"
+            [disabled]="pincodeDisabled">
+            <ion-select-option value="">Select Pincode</ion-select-option>
+            <ion-select-option *ngFor="let item of pincode" [value]="item.key">
+                {{item.value}}</ion-select-option>
     
-    <ion-select [(ngModel)]="selectedService" multiple="true">
-        <ion-select-option value="">Select Services</ion-select-option>
-        <ion-select-option *ngFor="let item of service1" [value]="item.key">
+    </ion-select>
+</ion-item>
+    <ion-item lines="none">
+
+        <ion-label position="stacked">Proprietor Name</ion-label><br>
+        <ion-input type="text" [(ngModel)]="proprietorName" required></ion-input>
+
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked">Services</ion-label><br>
+        <ion-select [(ngModel)]="selectedService" multiple="true">
+            <ion-select-option value="">Select Services</ion-select-option>
+            <ion-select-option *ngFor="let item of service1" [value]="item.key">
             {{item.value}}</ion-select-option>
     </ion-select>
-    <br>
-    
+</ion-item> 
 </ion-content>
 <ion-footer class="ion-no-border">
-    <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>
+    <ion-button size="large" expand="full" class="btn" (click)="create()">{{'continue' | translate}}</ion-button>
 </ion-footer>

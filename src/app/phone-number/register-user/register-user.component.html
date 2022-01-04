@@ -43,7 +43,7 @@
             <ion-item lines="none">
                 <div class="item_inner d-flex">
                     <h3>+91</h3>
-                    <ion-input mode="md" type='tel' [(ngModel)]="phoneNumber"                     placeholder="{{'enter_mobile_number' | translate}}" maxlength="10"
+                    <ion-input mode="md" type='tel' [(ngModel)]="phoneNumber" placeholder="{{'enter_mobile_number' | translate}}" maxlength="10"
                      ></ion-input>
                     <ion-button size="large" class="btn end" (click)="login();"
                         [disabled]="phoneNumber.length!==10 || !termsandcondition"> {{'continue' | translate}}

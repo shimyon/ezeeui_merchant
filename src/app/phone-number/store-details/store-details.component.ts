@@ -12,37 +12,42 @@ export class StoreDetailsComponent implements OnInit {
   constructor(private route: Router,
     private $http: HttpService,
     private $api: ApiRouting) { }
-  storeId: 0
-  quickCode: any
-  description: any
-  imageUrl: any
-  
-  opening: any
-  closing: any
-  deliveryChargesCode: 0
-  onlyCodAvailable: true
-  minOrderAmount: 0
+  storeId: ''
+  quickCode: ""
+  description: ""
+  imageUrl: ""
+  longitude: ""
+  latitude: ""
+  opening:""
+  closing: ""
+  deliveryChargesCode: ''
+  onlyCodAvailable: ''
+  minOrderAmount: ''
   deliveryCharges = []
-  selecteddeliveryCharges=null;
- 
+  selecteddeliveryCharges = null;
 
-  ngOnInit() {this.getdropdown() }
+
+  ionViewDidEnter() {
+    this.getdropdown()
+  }
+
+  ngOnInit() { }
 
   register() {
     this.route.navigate(['./phone-number/address-details']);
   }
 
   getdropdown() {
-    let url =this.$api.goTo().getdropdown();
+    let url = this.$api.goTo().getdropdown();
     this.$http.httpCall().get(url, {}, {})
       .then(data => {
-            const res: any = data;
-              if (res.status === 200) {
-                data = JSON.parse(res.data);
-                data= data['response'];
-                this.deliveryCharges = data['deliveryChargesCollection'];
-                               
-              }
+        const res: any = data;
+        if (res.status === 200) {
+          data = JSON.parse(res.data);
+          data = data['response'];
+          this.deliveryCharges = data['deliveryChargesCollection'];
+
+        }
       },
         err => {
           debugger
@@ -52,38 +57,35 @@ export class StoreDetailsComponent implements OnInit {
       });
 
   }
-
-  create() {
+  basic() {
     const payload = {
-      quickCode: this.quickCode,
-      storeId: 0,
-      description: '',
-      imageUrl: '',
-      
-      opening: '',
-      closing: '',
-      deliveryChargesCode: 0,
-      onlyCodAvailable: true,
-      minOrderAmount: 0
+      "storeId": 0,
+      "quickCode": this.quickCode,
+      "description": this.description,
+      "imageUrl": this.imageUrl,
+      "longitude": this.longitude,
+      "latitude": this.latitude,
+      "opening": this.opening,
+      "closing": this.closing,
+      "deliveryChargesCode": parseInt(this.selecteddeliveryCharges),
+      "onlyCodAvailable": this.onlyCodAvailable,
+      "minOrderAmount": parseFloat(this.minOrderAmount)
     };
-    this.$http.httpCall().post(this.$api.goTo().create(), payload, {})
+    this.$http.httpCall().post(this.$api.goTo().basic(), payload, {})
       .then(data => {
+        debugger
         const res: any = data;
-        //   if (res.status === 200) {
-        //     localStorage.setItem("phoneNumber", this.phoneNumber);
-        //     data = JSON.parse(res.data);
-        //     payload.otp = data['response'].otp;
-        //     payload.otpExpirationTime = data['response'].otpExpirationTime;
-        //     this._storageService.setVerification(payload);
-        //     this.register();
-        //   }
-        // }, err => {
-        //   debugger
-        // })
-        // .catch(error => {
-        //   console.log(error);
-        // });
+        if (res.status === 200) {
+         alert("save data successfully")
+          this.register();
+          console.log("store details added.");
+        }
+        
+      }, err => {
+        debugger
       })
+      .catch(error => {
+        console.log(error);
+      });
   }
-
 }

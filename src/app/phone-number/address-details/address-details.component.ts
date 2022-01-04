@@ -9,12 +9,12 @@ import { HttpService } from 'src/services/httpCall/http.service';
   styleUrls: ['./address-details.component.scss'],
 })
 export class AddressDetailsComponent implements OnInit {
-  storeId: 0
-    mailingAddress: ''
-    email: ''
-    contactNumber: ''
-    displayAddress: ''
-    landmark: ''
+  storeId: ''
+    mailingAddress: ""
+    email: ""
+    contactNumber: ""
+    displayAddress: ""
+    landmark: ""
   constructor(private route: Router,
     private $http: HttpService,
     private $api: ApiRouting) { }
@@ -26,30 +26,27 @@ export class AddressDetailsComponent implements OnInit {
   address() {
     const payload = {
       "storeId": 0,
-      "mailingAddress": "string",
-      "email": "string",
-      "contactNumber": "string",
-      "displayAddress": "string",
-      "landmark": "string"
+      "mailingAddress": this.mailingAddress,
+      "email": this.email,
+      "contactNumber":this.contactNumber,
+      "displayAddress":this.displayAddress ,
+      "landmark":this.landmark 
     };
     this.$http.httpCall().post(this.$api.goTo().address(), payload, {})
-      .then(data => {
+       .then(data => {
+        debugger
         const res: any = data;
-        //   if (res.status === 200) {
-        //     localStorage.setItem("phoneNumber", this.phoneNumber);
-        //     data = JSON.parse(res.data);
-        //     payload.otp = data['response'].otp;
-        //     payload.otpExpirationTime = data['response'].otpExpirationTime;
-        //     this._storageService.setVerification(payload);
-        //     this.register();
-        //   }
-        // }, err => {
-        //   debugger
-        // })
-        // .catch(error => {
-        //   console.log(error);
-        // });
-      })
+          if (res.status === 200) {
+            alert("save data successfully")
+            this.register();
+            console.log("address added")
+          }
+        }, err => {
+          debugger
+        })
+        .catch(error => {
+          console.log(error);
+        });
   }
 }
 

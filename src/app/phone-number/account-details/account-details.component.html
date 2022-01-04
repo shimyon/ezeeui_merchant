@@ -8,38 +8,44 @@
 </ion-header>
 
 <ion-content>
-
-    <ion-label position="fixed">Bank Account Number</ion-label><br>
-    <ion-input maxlength="16" type="tel" required></ion-input>
-
-    <ion-label position="fixed">Re-enter Bank Account Number</ion-label><br>
-    <ion-input maxlength="16" type="tel" required></ion-input>
-
-
-    <ion-label position="fixed">Bank Name</ion-label><br>
-    <ion-input type="text" required></ion-input>
-
-
-    <ion-label position="fixed">IFSC code</ion-label><br>
-    <ion-input type="text" required></ion-input>
-    <ion-label position="fixed"> Account Type:</ion-label><br>
-    <ion-select [(ngModel)]="selectedbank" value="brown" okText="Okay" cancelText="Dismiss">
-        <ion-select-option value="">Select Bank Account Type:</ion-select-option>
-        <ion-select-option *ngFor="let item of   banktype" [value]="item.key">
-            {{item.value}}</ion-select-option>
-    </ion-select>
-    <br>
-    
-    <ion-label position="fixed">Account Holder Name</ion-label><br>
-    <ion-input type="text" required></ion-input>
-
-    <ion-label position="fixed">Bank Details URL</ion-label><br>
-    <ion-input type="text" required></ion-input>
-
-    <ion-label position="fixed">Bank Details Upload Date</ion-label><br>
-    <ion-input type="text" required></ion-input>
+    <ion-item lines="none">
+        <ion-label position="stacked">Bank Account Number</ion-label><br>
+        <ion-input [(ngModel)]="bankAccountNumber" maxlength="16" type="tel" required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked">Re-enter Bank Account Number</ion-label><br>
+        <ion-input [(ngModel)]="mailingAddress" maxlength="16" type="tel" required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked">Bank Name</ion-label><br>
+        <ion-input [(ngModel)]="bankName" type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked">IFSC code</ion-label><br>
+        <ion-input [(ngModel)]="bankIfscCode" type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked"> Account Type:</ion-label><br>
+        <ion-select [(ngModel)]="selectedaccount" value="brown" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="">Select Bank Account Type:</ion-select-option>
+            <ion-select-option *ngFor="let item of accountType" [value]="item.key">
+                {{item.value}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked">Account Holder Name</ion-label><br>
+        <ion-input [(ngModel)]="accoungHolderName" type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked">Bank Details URL</ion-label><br>
+        <ion-input [(ngModel)]="bankDetailUrl" type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label position="stacked">Bank Details Upload Date</ion-label><br>
+        <ion-datetime [(ngModel)]="bankDetailUploadDate" displayFormat="YYYY-MM-DD"></ion-datetime>
+    </ion-item>
 
 </ion-content>
 <ion-footer class="ion-no-border">
-    <ion-button size="large" expand="full" class="btn" (click)="register()">{{'continue' | translate}}</ion-button>
+    <ion-button size="large" expand="full" class="btn" (click)="financial()">{{'continue' | translate}}</ion-button>
 </ion-footer>
