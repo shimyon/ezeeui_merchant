@@ -20,7 +20,7 @@ import { HttpService } from 'src/services/httpCall/http.service';
 import { SharedModule } from './shared/shared.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-// import { Firebase } from '@ionic-native/firebase';
+import { Firebase } from '@ionic-native/firebase';
 import { appInitialize } from '@ionic/angular/app-initialize';
 import { Fcm } from 'src/Provider/fcm';
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,7 +41,7 @@ const Firebase = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AngularFireModule.initializeApp(Firebase),
+    // AngularFireModule.initializeApp(Firebase),
     AngularFirestoreModule,
     AppRoutingModule,
     HttpClientModule,
@@ -59,12 +59,12 @@ const Firebase = {
     ToastService,
     HttpService,
     StatusBar,
-    NativeStorage,
+    // NativeStorage,
     SplashScreen,
     HTTP,
-    // Firebase,
     { provide: APP_CONFIG, useValue: BaseAppConfig },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Firebase,
     Fcm
   ],
   bootstrap: [AppComponent]
