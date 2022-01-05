@@ -41,7 +41,7 @@ const Firebase = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    // AngularFireModule.initializeApp(Firebase),
+    AngularFireModule.initializeApp(Firebase),
     AngularFirestoreModule,
     AppRoutingModule,
     HttpClientModule,
@@ -59,13 +59,13 @@ const Firebase = {
     ToastService,
     HttpService,
     StatusBar,
-    // NativeStorage,
+    NativeStorage,
     SplashScreen,
     HTTP,
+    // Firebase,
     { provide: APP_CONFIG, useValue: BaseAppConfig },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    //  Firebase,
-    // Fcm
+    Fcm
   ],
   bootstrap: [AppComponent]
 })
