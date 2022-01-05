@@ -7,7 +7,7 @@ import { AngularFirestore } from "angularfire2/firestore";
 export class Fcm {
     firebaseNative: any;
     constructor(
-        //public FirebaseNative: firebase,
+        public FirebaseNative: Firebase,
         public afs: AngularFirestore,
         private platform: Platform
     ) { }

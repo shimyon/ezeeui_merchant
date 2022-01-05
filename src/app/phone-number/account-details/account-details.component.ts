@@ -15,7 +15,7 @@ export class AccountDetailsComponent implements OnInit {
   bankIfscCode: ""
   accoungHolderName: ""
   bankDetailUrl: ""
-  bankDetailUploadDate: ""
+  //bankDetailUploadDate: ""
   accountType = []
   selectedaccount = null;
   constructor(private route: Router,
@@ -52,25 +52,25 @@ export class AccountDetailsComponent implements OnInit {
  
   financial() {
     const payload = {
-      "storeId": 0,
+      //"storeId": 0,
       "bankAccountNumber": this.bankAccountNumber,
       "bankName": this.bankName,
       "bankIfscCode": this.bankIfscCode,
       "accountType": this.selectedaccount,
       "accoungHolderName": this.accoungHolderName,
       "bankDetailUrl": this.bankDetailUrl,
-      "bankDetailUploadDate": this.bankDetailUploadDate
+     // "bankDetailUploadDate": 0
     };
     this.$http.httpCall().post(this.$api.goTo().financial(), payload, {})
-       .then(data => {
-      const res: any = data;
+    .then(data => {
       debugger
+      const res: any = data;
         if (res.status === 200) {
-          debugger
           alert("save data successfully")
           this.register();
           console.log("bank account details added")
         }
+         
       }, err => {
         debugger
         alert("not save data")

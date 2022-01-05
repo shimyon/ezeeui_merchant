@@ -12,7 +12,6 @@ export const environment = {
     Key: "#lwdRC1dz2tvdSaA",
     callbackurl: "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID="
   }
-
 };
 
 /*
