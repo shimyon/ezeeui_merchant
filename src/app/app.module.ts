@@ -20,9 +20,9 @@ import { HttpService } from 'src/services/httpCall/http.service';
 import { SharedModule } from './shared/shared.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { Firebase } from '@ionic-native/firebase';
+//import { Firebase } from '@ionic-native/firebase';
 import { appInitialize } from '@ionic/angular/app-initialize';
-import { Fcm } from 'src/Provider/fcm';
+import { FCM } from '@ionic-native/fcm/ngx';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -64,8 +64,8 @@ const Firebase = {
     HTTP,
     { provide: APP_CONFIG, useValue: BaseAppConfig },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Firebase,
-    Fcm
+    //Firebase,
+    FCM
   ],
   bootstrap: [AppComponent]
 })

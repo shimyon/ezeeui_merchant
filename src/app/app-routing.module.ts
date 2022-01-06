@@ -111,6 +111,12 @@ const routes: Routes = [
     path: 'verify-otp',
     loadChildren: () => import('./phone-number/phone-number.module').then(m => m.PhoneNumberPageModule)
   },
+  
+  {
+    path: 'component',
+    loadChildren: () => import('./component/component.module').then( m => m.ComponentPageModule)
+  },
+
 ];
 @NgModule({
   imports: [
