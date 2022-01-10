@@ -12,11 +12,14 @@
 <ion-content>
   <ion-item lines="none">
     <ion-label position="stacked">quickCode</ion-label><br>
+    <!-- <ion-thumbnail item-start [(ngModel)]="quickCode">
+      <img src="">
+    </ion-thumbnail> -->
     <ion-input type="text" [(ngModel)]="quickCode" required></ion-input>
   </ion-item>
   <ion-item lines="none">
-    <ion-label position="stacked">description</ion-label><br>
-    <ion-input type="textarea" [(ngModel)]="description" required></ion-input>
+    <ion-label position="stacked">description</ion-label>
+    <ion-textarea [(ngModel)]="description" required></ion-textarea>
   </ion-item>
   <ion-item lines="none">
     <ion-label position="stacked">imageURL</ion-label><br>
