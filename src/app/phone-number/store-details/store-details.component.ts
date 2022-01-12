@@ -9,22 +9,23 @@ import { HttpService } from 'src/services/httpCall/http.service';
   styleUrls: ['./store-details.component.scss'],
 })
 export class StoreDetailsComponent implements OnInit {
+  storeId: '';
+  quickCode: ""
+  description: "";
+  imageUrl: "";
+  longitude: "";
+  latitude: "";
+  opening = {};
+  closing = {};
+  deliveryChargesCode: '';
+  onlyCodAvailable: '';
+  minOrderAmount: '';
+  deliveryCharges = [];
+  selecteddeliveryCharges = null;
+
   constructor(private route: Router,
     private $http: HttpService,
     private $api: ApiRouting) { }
-  storeId: ''
-  quickCode: ""
-  description: ""
-  imageUrl: ""
-  longitude: ""
-  latitude: ""
-  opening:""
-  closing: ""
-  deliveryChargesCode: ''
-  onlyCodAvailable: ''
-  minOrderAmount: ''
-  deliveryCharges = []
-  selecteddeliveryCharges = null;
 
 
   ionViewDidEnter() {
@@ -76,11 +77,11 @@ export class StoreDetailsComponent implements OnInit {
         debugger
         const res: any = data;
         if (res.status === 200) {
-         alert("save data successfully")
+          alert("save data successfully")
           this.register();
           console.log("store details added.");
         }
-        
+
       }, err => {
         debugger
       })
