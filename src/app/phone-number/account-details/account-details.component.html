@@ -14,7 +14,7 @@
     </ion-item>
     <ion-item lines="none">
         <ion-label position="stacked">Re-enter Bank Account Number</ion-label><br>
-        <ion-input [(ngModel)]="mailingAddress" maxlength="16" type="tel" required></ion-input>
+        <ion-input [(ngModel)]="confirmbankAccountNumber" maxlength="16" type="tel" required></ion-input>
     </ion-item>
     <ion-item lines="none">
         <ion-label position="stacked">Bank Name</ion-label><br>
@@ -40,11 +40,7 @@
         <ion-label position="stacked">Bank Details URL</ion-label><br>
         <ion-input [(ngModel)]="bankDetailUrl" type="text" required></ion-input>
     </ion-item>
-    <ion-item lines="none">
-        <ion-label position="stacked">Bank Details Upload Date</ion-label><br>
-        <!-- <ion-datetime [(ngModel)]="bankDetailUploadDate" displayFormat="YYYY-MM-DD"></ion-datetime> -->
-    </ion-item>
-
+   
 </ion-content>
 <ion-footer class="ion-no-border">
     <ion-button size="large" expand="full" class="btn" (click)="financial()">{{'continue' | translate}}</ion-button>

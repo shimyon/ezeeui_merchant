@@ -23,6 +23,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 //import { Firebase } from '@ionic-native/firebase';
 import { appInitialize } from '@ionic/angular/app-initialize';
 import { FCM } from '@ionic-native/fcm/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -59,6 +62,8 @@ const Firebase = {
     ToastService,
     HttpService,
     StatusBar,
+    WebView,
+    Camera,
     // NativeStorage,
     SplashScreen,
     HTTP,

@@ -56,11 +56,11 @@ export class StoreDetailsComponent implements OnInit {
       .catch(error => {
         console.log(error);
       });
-
+      
   }
   basic() {
     const payload = {
-      "storeId": 0,
+      "storeId": parseInt( localStorage.getItem("storeId")),
       "quickCode": this.quickCode,
       "description": this.description,
       "imageUrl": this.imageUrl,

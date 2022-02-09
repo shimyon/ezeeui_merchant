@@ -44,6 +44,9 @@ export class ApiRouting {
         document: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/DocumentUpload`,
         detailtiming: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/Create/DetailTiming`,
         getcitypincode: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/GetCityPincode`,
+        ListStore: () => `${this.AUTH_SERVER_ADDRESS.API_URL}/api/Store/ListStore`,
+
+        
     };
 
     goTo() {

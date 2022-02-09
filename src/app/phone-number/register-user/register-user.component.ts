@@ -22,7 +22,7 @@ export class RegisterUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    localStorage.clear();
   }
 
   register() {
