@@ -18,6 +18,17 @@
     <ion-label position="stacked">Description</ion-label>
     <ion-textarea [(ngModel)]="description" required></ion-textarea>
   </ion-item>
+  <!-- <ion-item>
+    <p>{{imageURI}}</p>
+    <button ion-button color="secondary" (click)="getImage()">Get Image</button>
+  </ion-item>
+  <ion-item>
+    <h4>Image Preview</h4>
+    <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
+  </ion-item>
+  <ion-item>
+    <button ion-button (click)="uploadFile()">Upload</button>
+  </ion-item> -->
   <ion-item lines="none">
     <ion-label position="stacked">ImageURL</ion-label><br>
     <ion-input type="text" [(ngModel)]="imageUrl" required></ion-input>

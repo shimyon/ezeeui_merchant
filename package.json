@@ -29,6 +29,7 @@
         "@ionic-native/fcm": "^5.36.0",
         "@ionic-native/file": "^5.36.0",
         "@ionic-native/file-path": "^5.36.0",
+        "@ionic-native/file-transfer": "^5.36.0",
         "@ionic-native/firebase": "^5.36.0",
         "@ionic-native/http": "^5.36.0",
         "@ionic-native/ionic-webview": "^5.36.0",

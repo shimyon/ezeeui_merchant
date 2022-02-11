@@ -23,9 +23,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 //import { Firebase } from '@ionic-native/firebase';
 import { appInitialize } from '@ionic/angular/app-initialize';
 import { FCM } from '@ionic-native/fcm/ngx';
-import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { Camera } from '@ionic-native/camera/ngx';
-
+// import { Camera } from '@ionic-native/camera';
+//import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+//import { File } from '@ionic-native/file/ngx';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -37,7 +37,7 @@ const Firebase = {
   projectId: "notification-56229",
   StorageBucket: "notification-56229.appspot.com",
   messagingSenderId: "789271148392"
-}
+} 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -62,8 +62,11 @@ const Firebase = {
     ToastService,
     HttpService,
     StatusBar,
-    WebView,
-    Camera,
+    // Camera,
+    // FileTransfer,
+    //File,
+    // FileUploadOptions,
+    //FileTransferObject,
     // NativeStorage,
     SplashScreen,
     HTTP,
