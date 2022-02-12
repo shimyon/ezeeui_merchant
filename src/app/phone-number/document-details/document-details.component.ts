@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { ActionSheetController, LoadingController, Platform, ToastController } from '@ionic/angular';
+// import { WebView } from '@ionic-native/ionic-webview/ngx';
+// import { ActionSheetController, LoadingController, Platform, ToastController } from '@ionic/angular';
 import { ApiRouting } from 'src/app/shared/api.routing';
 import { HttpService } from 'src/services/httpCall/http.service';
 // import { File,FileEntry  } from '@ionic-native/File/ngx';
 // import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/Camera/ngx';
 // import { FilePath } from '@ionic-native/file-path/ngx';
 // import { finalize } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-document-details',
   templateUrl: './document-details.component.html',
@@ -22,19 +22,26 @@ export class DocumentDetailsComponent implements OnInit {
     // private platform:Platform,
     // private webview: WebView,
     // private camera: Camera,
-    private actionSheetController: ActionSheetController,
+    // private actionSheetController: ActionSheetController,
     // private filePath: FilePath,
     // private file: File,
-    private loadingController: LoadingController,
-    private toastController : ToastController,
-    private storage: Storage,
-    private http : HttpClient) { }
+   
+    ) { }
   storeId: ''
   documentTypeId: ""
   documenttype = []
   selecteddocument=null;
   images = [];
-
+  url="";
+  selectfile(event){
+    if(event.target.files){
+      var reader= new FileReader()
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload=(event:any) =>{
+        this.url= event.target.result
+      }
+    }
+  }
   getdropdown() {
     let url =this.$api.goTo().getdropdown();
     this.$http.httpCall().get(url, {}, {})

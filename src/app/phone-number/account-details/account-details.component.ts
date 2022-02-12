@@ -10,6 +10,16 @@ import { HttpService } from 'src/services/httpCall/http.service';
   styleUrls: ['./account-details.component.scss'],
 })
 export class AccountDetailsComponent implements OnInit {
+  url="";
+  selectfile(event){
+    if(event.target.files){
+      var reader= new FileReader()
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload=(event:any) =>{
+        this.url= event.target.result
+      }
+    }
+  }
   storeId: ''
   bankAccountNumber: ""
   bankName: ""

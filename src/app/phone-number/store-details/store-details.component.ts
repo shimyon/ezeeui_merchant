@@ -3,14 +3,24 @@ import { Router } from '@angular/router';
 import { ApiRouting } from 'src/app/shared/api.routing';
 import { HttpService } from 'src/services/httpCall/http.service';
 import { NavController, LoadingController, ToastController } from '@ionic/angular';
-// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-// import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 @Component({
   selector: 'app-store-details',
   templateUrl: './store-details.component.html',
   styleUrls: ['./store-details.component.scss'],
 })
 export class StoreDetailsComponent implements OnInit {
+  url="";
+  selectfile(event){
+    if(event.target.files){
+      var reader= new FileReader()
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload=(event:any) =>{
+        this.url= event.target.result
+      }
+    }
+  }
   storeId: '';
   quickCode: ""
   description: "";
