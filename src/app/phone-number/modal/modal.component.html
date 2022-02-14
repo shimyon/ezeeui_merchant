@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title></ion-title>
+        <ion-item lines="none">
+            <ion-label><strong>Select/Deselect All</strong></ion-label>
+            <ion-checkbox slot="start" [(ngModel)]="masterCheck" [indeterminate]="isIndeterminate"
+                (click)="checkMaster($event)"></ion-checkbox>
+        </ion-item>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+   
+        <ion-list>
+
+            <ion-item *ngFor="let item of service1" lines="none">
+                <ion-label>{{item.value}}</ion-label>
+                <ion-checkbox slot="start" [(ngModel)]="item.isChecked" (ionChange)="checkEvent()"></ion-checkbox>
+            </ion-item>
+           
+        </ion-list>
+    
+    <ion-footer>
+        <ion-button (click)="dismiss()">Dismiss</ion-button>
+        <ion-button (click)="okay()" style='float: right;'>Okay</ion-button>
+    </ion-footer>
+</ion-content>

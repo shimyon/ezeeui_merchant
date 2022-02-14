@@ -8,11 +8,10 @@
 </ion-header>
 
 <ion-content>
-    <ion-item lines="none">
 
+    <ion-item lines="none">
         <ion-label position="stacked">Store Name</ion-label><br>
         <ion-input type="text" [(ngModel)]="storeName" required></ion-input>
-
     </ion-item>
 
     <ion-item lines="none">
@@ -24,6 +23,7 @@
                 {{item.value}}</ion-select-option>
         </ion-select>
     </ion-item>
+
     <ion-item lines="none">
         <ion-label position="stacked">City Name</ion-label><br>
         <ion-select [(ngModel)]="selectedcity" value="brown" okText="Okay" cancelText="Dismiss"
@@ -31,66 +31,35 @@
             <ion-select-option value="">Select City</ion-select-option>
             <ion-select-option *ngFor="let item of city" [value]="item.key">
                 {{item.value}}</ion-select-option>
-    </ion-select>
-</ion-item>
+        </ion-select>
+    </ion-item>
 
     <ion-item lines="none">
         <ion-label position="stacked">Pincode</ion-label><br>
         <ion-select [(ngModel)]="selectedpincode" value="brown" okText="Okay" cancelText="Dismiss"
             [disabled]="pincodeDisabled">
-         
-           
-            <ion-select-option value="">Select Pincode</ion-select-option> 
+            <ion-select-option value="">Select Pincode</ion-select-option>
             <ion-select-option *ngFor="let item of pincode" [value]="item.key">
                 {{item.value}}</ion-select-option>
-           
-    </ion-select>
-</ion-item>
-    <ion-item lines="none">
+        </ion-select>
+    </ion-item>
 
+    <ion-item lines="none">
         <ion-label position="stacked">Proprietor Name</ion-label><br>
         <ion-input type="text" [(ngModel)]="proprietorName" required></ion-input>
-
     </ion-item>
-    <!-- <ion-item lines="none">
-        <ion-label position="stacked">Services</ion-label><br>
-        <ion-infinite-scroll><ion-list>
-                <ion-item>
-                <ion-label><strong>Select/Deselect All</strong></ion-label>
-                <ion-checkbox slot="start" 
-                [(ngModel)]="masterCheck"
-                [indeterminate]="isIndeterminate"
-                    (click)="checkMaster($event)"></ion-checkbox>
-                </ion-item >
-                <ion-item *ngFor="let item of service1" lines="none" [value]="item.key">
-                <ion-label>{{item.value}}</ion-label>
-                <ion-checkbox slot="start" 
-                [(ngModel)]="item.isChecked" 
-                (ionChange)="checkEvent()"></ion-checkbox>
-                </ion-item>
-    </ion-list>
-</ion-infinite-scroll>
-    </ion-item> -->
-        
-        
-    
+
     <ion-item lines="none">
-        <ion-label position="stacked">Services</ion-label><br>
-       
-      
-        <ion-select [(ngModel)]="selectedService" multiple="true">
-            
-                <ion-select-option>Select/Deselect All</ion-select-option>
-            
-          
+        <ion-label position="stacked" (click)="showModal()">Services</ion-label><br>
+        <!-- <ion-select [(ngModel)]="selectedService" multiple="true">
             <ion-select-option *ngFor="let item of service1" [value]="item.key">
             {{item.value}}</ion-select-option>
-           
+            </ion-select> -->
+        <ion-label position="stacked"  >{{services}}</ion-label>
+    </ion-item>
 
-    </ion-select>
-
-</ion-item> 
 </ion-content>
+
 <ion-footer class="ion-no-border">
     <ion-button size="large" expand="full" class="btn" (click)="create()">{{'continue' | translate}}</ion-button>
 </ion-footer>

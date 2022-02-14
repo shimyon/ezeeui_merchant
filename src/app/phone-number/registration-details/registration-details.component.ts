@@ -1,10 +1,12 @@
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { ApiRouting } from 'src/app/shared/api.routing';
 import { message } from 'src/app/utils';
 import { HttpService } from 'src/services/httpCall/http.service';
+import { ModalController } from '@ionic/angular';
+import { ModalComponent } from '../modal/modal.component';
 @Component({
   selector: 'app-registration-details',
   templateUrl: './registration-details.component.html',
@@ -12,7 +14,29 @@ import { HttpService } from 'src/services/httpCall/http.service';
 
 })
 export class RegistrationDetailsComponent implements OnInit {
-  SelectBox = "";
+
+  async showModal() {
+    const modal = await this.modalCtrl.create({
+      component: ModalComponent,
+      componentProps: {
+        'selectedService': this.service1,
+      }
+    });
+    modal.present();
+    const { data } = await modal.onWillDismiss();
+    this.service1 = [];
+    this.services = '';
+    if (data) {
+      data.forEach(f => {
+        this.service1.push(f.key);
+        
+        this.services += f.value + ',';
+      })
+    }
+
+  }
+
+  services: ""
   storeId: ''
   storeName: ""
   cityId: 0
@@ -32,19 +56,24 @@ export class RegistrationDetailsComponent implements OnInit {
   pincodeDisabled = true;
 
   private _storageService: any;
-  serviceCollection: any[];
+
   constructor(private route: Router,
     private $http: HttpService,
-    private $api: ApiRouting) { }
+    private $api: ApiRouting,
+    public modalCtrl: ModalController) { }
 
   ngOnInit() {
 
   }
 
+
+
   ionViewDidEnter() {
     this.getdropdown()
     //this.getcitypincode()  
   }
+
+
 
   register() {
     this.route.navigate(['./phone-number/store-details']);
@@ -56,8 +85,10 @@ export class RegistrationDetailsComponent implements OnInit {
       });
     });
   }
+
   isIndeterminate: boolean;
   masterCheck: boolean;
+
   checkEvent() {
     const totalItems = this.service1.length;
     let checked = 0;
@@ -96,12 +127,7 @@ export class RegistrationDetailsComponent implements OnInit {
 
   }
 
-  selectAll(_event) {
-    console.log("in select all", _event);
-    if (_event.detail.value.includes("selectall")) {
-      this.service1 = this.serviceCollection;
-    }
-  }
+
   stateChange(): void {
     this.getcitypincode();
     this.cityDisabled = false;

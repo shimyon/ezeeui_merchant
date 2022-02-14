@@ -116,6 +116,7 @@ const routes: Routes = [
     path: 'component',
     loadChildren: () => import('./component/component.module').then( m => m.ComponentPageModule)
   },
+ 
 
 ];
 @NgModule({

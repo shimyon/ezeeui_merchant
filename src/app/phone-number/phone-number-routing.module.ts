@@ -9,7 +9,7 @@ import { ViewRegistrationDetailsComponent } from "./view-registration-details/vi
 import { PhoneNumberPage } from './phone-number.page';
 import { StoreDetailsComponent } from './store-details/store-details.component';
 import { AddressDetailsComponent } from './address-details/address-details.component';
-
+import { IonicModule } from '@ionic/angular';
 const routes: Routes = [
   {
     path: '',
@@ -46,7 +46,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),IonicModule.forRoot()],
   exports: [RouterModule],
 })
 export class PhoneNumberPageRoutingModule { }

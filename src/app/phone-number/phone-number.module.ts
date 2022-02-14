@@ -14,6 +14,7 @@ import { PhoneNumberPage } from './phone-number.page';
 
 import { StoreDetailsComponent } from './store-details/store-details.component';
 import { AddressDetailsComponent } from './address-details/address-details.component';
+import { ModalComponent } from './modal/modal.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,6 +23,6 @@ import { AddressDetailsComponent } from './address-details/address-details.compo
     TranslateModule,
     PhoneNumberPageRoutingModule
   ],
-  declarations: [PhoneNumberPage, AddressDetailsComponent, StoreDetailsComponent, RegisterUserComponent, VerifyOtpComponent, RegistrationDetailsComponent, ViewRegistrationDetailsComponent, AccountDetailsComponent, DocumentDetailsComponent]
+  declarations: [ModalComponent,PhoneNumberPage, AddressDetailsComponent, StoreDetailsComponent, RegisterUserComponent, VerifyOtpComponent, RegistrationDetailsComponent, ViewRegistrationDetailsComponent, AccountDetailsComponent, DocumentDetailsComponent]
 })
 export class PhoneNumberPageModule { }
