@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Pincode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+    <ion-item *ngFor="let item of pincode" lines="none" [disabled]="pincodeDisabled">
+      <ion-label>{{item.value}}</ion-label>
+      <ion-radio slot="start" ></ion-radio>
+  </ion-item>
+
+  <ion-footer>
+      <ion-button (click)="dismiss()">Dismiss</ion-button>
+      <ion-button (click)="okay()" style='float: right;'>Okay</ion-button>
+  </ion-footer>
+ 
+</ion-content>

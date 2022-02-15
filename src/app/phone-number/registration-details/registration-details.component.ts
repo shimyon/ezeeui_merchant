@@ -1,5 +1,5 @@
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { ApiRouting } from 'src/app/shared/api.routing';
@@ -7,6 +7,7 @@ import { message } from 'src/app/utils';
 import { HttpService } from 'src/services/httpCall/http.service';
 import { ModalController } from '@ionic/angular';
 import { ModalComponent } from '../modal/modal.component';
+import { PincodeModalComponent } from '../pincode-modal/pincode-modal.component';
 @Component({
   selector: 'app-registration-details',
   templateUrl: './registration-details.component.html',
@@ -14,6 +15,7 @@ import { ModalComponent } from '../modal/modal.component';
 
 })
 export class RegistrationDetailsComponent implements OnInit {
+
 
   async showModal() {
     const modal = await this.modalCtrl.create({
@@ -23,17 +25,29 @@ export class RegistrationDetailsComponent implements OnInit {
       }
     });
     modal.present();
+    
     const { data } = await modal.onWillDismiss();
     this.service1 = [];
     this.services = '';
     if (data) {
       data.forEach(f => {
         this.service1.push(f.key);
-        
-        this.services += f.value + ',';
+        this.services += f.value + ' , ';
       })
     }
 
+  }
+
+  async showpincodeModal() {
+    const pincodemodal = await this.modalCtrl.create({
+      component: PincodeModalComponent,
+      componentProps: {
+       'selectedState': this.states,
+      }
+    });
+    pincodemodal.present();
+    
+    
   }
 
   services: ""
@@ -165,7 +179,7 @@ export class RegistrationDetailsComponent implements OnInit {
       "cityId": parseInt(this.selectedcity),
       "pinCodeLookupId": parseInt(this.selectedpincode),
       "proprietorName": this.proprietorName,
-      "serviceId": this.selectedService.filter(f => f != '').toString()
+      "serviceId": this.service1.join()
     };
     this.$http.httpCall().post(this.$api.goTo().create(), payload, {})
       .then(data => {

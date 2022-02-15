@@ -13,6 +13,7 @@ export class ModalComponent implements OnInit {
   @Input() selectedService: any;
 
   service1 = []
+  
 
   isIndeterminate: boolean;
   masterCheck: boolean;
@@ -23,6 +24,8 @@ export class ModalComponent implements OnInit {
     private $api: ApiRouting) { }
 
   ngOnInit() { }
+
+  
 
   checkselectedservices() {
 
@@ -35,13 +38,10 @@ export class ModalComponent implements OnInit {
   }
 
   dismiss() {
-    this.modalCtrl.dismiss({
-      'dismissed': true
-    });
+    this.modalCtrl.dismiss();
   }
-
+  
   okay() {
-    debugger
     let returnData = [];
     this.service1.forEach((obj: any) => {
       if (obj.isChecked) returnData.push(obj);
