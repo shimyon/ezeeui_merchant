@@ -1,3 +1,4 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ApiRouting } from 'src/app/shared/api.routing';
@@ -9,31 +10,42 @@ import { HttpService } from 'src/services/httpCall/http.service';
   styleUrls: ['./pincode-modal.component.scss'],
 })
 export class PincodeModalComponent implements OnInit {
-  pincode = []
   pincodeDisabled = true;
-  cityDisabled= true;
   states = []
 
   @Input() selectedState: any;
-
   @Input() selectedpincode: any;
+  pincode = []
+  pincodelist = []
+  pincode1: ""
 
-  constructor( public modalCtrl: ModalController,private $http: HttpService,
+  constructor(public modalCtrl: ModalController, private $http: HttpService,
     private $api: ApiRouting) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   dismiss() {
     this.modalCtrl.dismiss();
   }
+
+  onOpChange($event) {
+    console.log($event);
+    console.log($event.target.value);
+  }
+
+  okay() {
+    const found = this.pincode.find(element => element.key == this.pincode1);
+    this.modalCtrl.dismiss(found);
+  }
+
   stateChange(): void {
     this.getcitypincode();
-    this.cityDisabled = false;
     this.pincodeDisabled = false;
   }
+
   ionViewDidEnter() {
     this.getcitypincode()
   }
-  
+
   getcitypincode() {
     let url = this.$api.goTo().getcitypincode();
     this.$http.httpCall().post(url, {
@@ -44,7 +56,8 @@ export class PincodeModalComponent implements OnInit {
         if (res.status === 200) {
           data = JSON.parse(res.data);
           data = data['response'];
-          this.pincode = data['pincodeCollection'];
+
+          this.pincodelist = this.pincode = data['pincodeCollection'];
         }
       },
         _err => {
@@ -53,6 +66,10 @@ export class PincodeModalComponent implements OnInit {
       .catch(error => {
         console.log(error);
       });
-
   }
+
+  searchpin(val) {
+    this.pincode = this.pincodelist.filter(f => f.value.indexOf(val) != -1);
+  }
+
 }

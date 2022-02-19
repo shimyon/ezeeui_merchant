@@ -1,5 +1,5 @@
 import { ThrowStmt } from '@angular/compiler';
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { ApiRouting } from 'src/app/shared/api.routing';
@@ -8,6 +8,8 @@ import { HttpService } from 'src/services/httpCall/http.service';
 import { ModalController } from '@ionic/angular';
 import { ModalComponent } from '../modal/modal.component';
 import { PincodeModalComponent } from '../pincode-modal/pincode-modal.component';
+import { filter } from 'rxjs/operators';
+import { ItemsPage } from 'src/app/items/items.page';
 @Component({
   selector: 'app-registration-details',
   templateUrl: './registration-details.component.html',
@@ -16,6 +18,28 @@ import { PincodeModalComponent } from '../pincode-modal/pincode-modal.component'
 })
 export class RegistrationDetailsComponent implements OnInit {
 
+  pincode1: ''
+  getpincode:''
+  services: ""
+  storeId: ''
+  storeName: ""
+  cityId: 0
+  pinCodeLookupId: 0
+  proprietorName: ""
+  serviceId: ""
+  phoneNumber: string;
+  states = []
+  selectedState = null;
+  selectedpincode = null;
+  service1 = []
+  selectedService = null;
+  city = []
+  selectedcity = null;
+  pincode = []
+  cityDisabled = true;
+  pincodeDisabled = true;
+
+  private _storageService: any;
 
   async showModal() {
     const modal = await this.modalCtrl.create({
@@ -25,7 +49,7 @@ export class RegistrationDetailsComponent implements OnInit {
       }
     });
     modal.present();
-    
+
     const { data } = await modal.onWillDismiss();
     this.service1 = [];
     this.services = '';
@@ -42,39 +66,26 @@ export class RegistrationDetailsComponent implements OnInit {
     const pincodemodal = await this.modalCtrl.create({
       component: PincodeModalComponent,
       componentProps: {
-       'selectedState': this.states,
+        'selectedState': this.selectedState,
       }
     });
     pincodemodal.present();
-    
-    
+
+    const { data } = await pincodemodal.onWillDismiss();
+    this.pincode1 = null;
+   
+    if (data) {
+      this.pincode1=data.key;
+      this.getpincode=data.value;
+    }
   }
-
-  services: ""
-  storeId: ''
-  storeName: ""
-  cityId: 0
-  pinCodeLookupId: 0
-  proprietorName: ""
-  serviceId: ""
-  phoneNumber: string;
-  states = []
-  selectedState = null;
-  service1 = []
-  selectedService = null;
-  city = []
-  selectedcity = null;
-  pincode = []
-  selectedpincode = null;
-  cityDisabled = true;
-  pincodeDisabled = true;
-
-  private _storageService: any;
 
   constructor(private route: Router,
     private $http: HttpService,
     private $api: ApiRouting,
-    public modalCtrl: ModalController) { }
+    public modalCtrl: ModalController) {
+    console.log(this.pincode1);
+  }
 
   ngOnInit() {
 
@@ -177,7 +188,7 @@ export class RegistrationDetailsComponent implements OnInit {
       "storeId": localStorage.getItem("storeId") ? parseInt(localStorage.getItem("storeId")) : 0,
       "storeName": this.storeName,
       "cityId": parseInt(this.selectedcity),
-      "pinCodeLookupId": parseInt(this.selectedpincode),
+      "pinCodeLookupId": parseInt(this.pincode1),
       "proprietorName": this.proprietorName,
       "serviceId": this.service1.join()
     };

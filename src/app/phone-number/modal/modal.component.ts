@@ -26,7 +26,7 @@ export class ModalComponent implements OnInit {
   ngOnInit() { }
 
   
-
+  
   checkselectedservices() {
 
     this.service1.forEach((obj: any) => {

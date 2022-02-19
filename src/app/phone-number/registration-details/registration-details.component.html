@@ -35,15 +35,18 @@
     </ion-item>
 
     <ion-item lines="none">
-        <ion-label position="stacked" (click)="showpincodeModal()" >Pincode</ion-label><br>
+        <ion-button position="stacked" (click)="showpincodeModal()" [disabled]="pincodeDisabled">Pincode</ion-button>
         <!-- <ion-select [(ngModel)]="selectedpincode" value="brown" okText="Okay" cancelText="Dismiss"
             [disabled]="pincodeDisabled">
             <ion-select-option value="">Select Pincode</ion-select-option>
+            <input type="text">
             <ion-select-option *ngFor="let item of pincode" [value]="item.key">
                 {{item.value}}</ion-select-option>
         </ion-select> -->
     </ion-item>
-
+    <ion-item lines="none">
+        <ion-card-content (click)="showpincodeModal()">{{getpincode}} </ion-card-content>
+    </ion-item>
     <ion-item lines="none">
         <ion-label position="stacked">Proprietor Name</ion-label><br>
         <ion-input type="text" [(ngModel)]="proprietorName" required></ion-input>
@@ -60,7 +63,7 @@
     <ion-item lines="none">
         <ion-card-content (click)="showModal()">{{services}} </ion-card-content>
     </ion-item>
-
+     
 </ion-content>
 
 <ion-footer class="ion-no-border">

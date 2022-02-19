@@ -1,19 +1,20 @@
 <ion-header>
+  <ion-title>Pincode</ion-title>
   <ion-toolbar>
-      <ion-title>Pincode</ion-title>
+    <ion-searchbar (ionInput)="searchpin($event.target.value)" ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
- 
-    <ion-item *ngFor="let item of pincode" lines="none" [disabled]="pincodeDisabled">
+  <ion-radio-group [(ngModel)] = "pincode1" (ionChange)="onOpChange($event)">
+    <ion-item *ngFor="let item of pincode" lines="none">
+      <ion-radio slot="start" [value]="item.key"></ion-radio>
       <ion-label>{{item.value}}</ion-label>
-      <ion-radio slot="start" ></ion-radio>
-  </ion-item>
-
-  <ion-footer>
-      <ion-button (click)="dismiss()">Dismiss</ion-button>
-      <ion-button (click)="okay()" style='float: right;'>Okay</ion-button>
-  </ion-footer>
- 
+    </ion-item>
+  </ion-radio-group>
 </ion-content>
+
+<ion-footer>
+  <ion-button (click)="dismiss()">Dismiss</ion-button>
+  <ion-button (click)="okay()" style='float: right;'>Okay</ion-button>
+</ion-footer>
